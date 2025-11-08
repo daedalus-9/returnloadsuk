@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { FiArrowRight } from "react-icons/fi";
 
-export const Content = () => {
+const Content = () => {
   const router = useRouter();
 
   const handleScrollToForm = () => {
@@ -78,3 +78,5 @@ export const Content = () => {
     </section>
   );
 };
+
+export default Content;

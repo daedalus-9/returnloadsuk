@@ -1,6 +1,6 @@
 import { Beams } from "../utils/Beams";
-import { Content } from "./Content";
-import { GradientGrid } from "./GradientGrid";
+import Content from "./Content";
+import GradientGrid from "./GradientGrid";
 
 export const Hero = () => {
   return (

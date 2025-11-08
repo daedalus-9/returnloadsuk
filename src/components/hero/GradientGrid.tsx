@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function GradientGrid() {
+const GradientGrid = () => {
   return (
     <motion.div
       initial={{
@@ -21,3 +21,5 @@ export default function GradientGrid() {
     </motion.div>
   );
 };
+
+export default GradientGrid;

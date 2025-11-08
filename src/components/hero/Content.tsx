@@ -6,10 +6,10 @@ import { SplashButton } from "../buttons/SplashButton";
 import { GlowingChip } from "../utils/GlowingChip";
 import { MaxWidthWrapper } from "../utils/MaxWidthWrapper";
 
-export default function Content() {
+const Content = () => {
   const router = useRouter();
   return (
-  <MaxWidthWrapper className="relative z-20 flex flex-col items-center justify-center pb-12 pt-24 text-center md:pb-36 md:pt-36">
+    <MaxWidthWrapper className="relative z-20 flex flex-col items-center justify-center pb-12 pt-24 text-center md:pb-36 md:pt-36">
       <motion.div
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -62,3 +62,5 @@ export default function Content() {
     </MaxWidthWrapper>
   );
 };
+
+export default Content;

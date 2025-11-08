@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { GhostButton } from "@/components/buttons/GhostButton";
 import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
 
-export const GradientGrid = () => {
+const GradientGrid = () => {
   const router = useRouter();
 
   return (
@@ -29,3 +29,5 @@ export const GradientGrid = () => {
     </section>
   );
 };
+
+export default GradientGrid;

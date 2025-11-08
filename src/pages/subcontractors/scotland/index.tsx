@@ -3,8 +3,8 @@ import { EnquiryForm } from "@/components/enquiryForm/EnquiryForm";
 import { Stats } from "@/components/features/stats/Stats";
 import Footer from "@/components/footer/Footer";
 import React from "react";
-import { Content } from "./hero/Content";
-import { GradientGrid } from "./hero/GradientGrid";
+import Content from "./hero/Content";
+import GradientGrid from "./hero/GradientGrid";
 
 export default function Scotland() {
   const scotlandRoutes = [
@@ -26,7 +26,6 @@ export default function Scotland() {
     // { title: "Oban to Dundee", location: "West / East Scotland" },
     // { title: "Fort William to Stirling", location: "Central Scotland" },
     // { title: "Highlands Distribution Network", location: "Northern Scotland" },
-
   ];
 
   return (
