@@ -19,7 +19,7 @@ export const Customers = () => {
     <section id="testimonials" className="relative overflow-hidden">
       <MaxWidthWrapper className="relative z-10 py-20 md:py-40">
         <SectionHeadingSpacing>
-          <SectionHeading>Loved by our customers</SectionHeading>
+          <SectionHeading>Appreciated by our partners</SectionHeading>
           <SectionSubheading>
             People trust people. Here’s what some of our freight partners and
             drivers say about working with Logic Freight.
@@ -94,39 +94,39 @@ const REVIEWS = {
   all: [
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Barry",
-      name: "Barry / Nigel",
-      handle: "JD Transport",
+      name: "Barry",
+     
       review: "Great team to work with. Good communication and efficient.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kevin",
-      name: "Kevin Fagan",
-      handle: "UK ROAD SOLUTIONS LTD",
+      name: "Kevin",
+     
       review:
         "Collected and delivered as per requests, special instructions followed with accuracy, excellent comms - Would recommend.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Owen",
-      name: "Owen Little",
-      handle: "O.L.T. Transport Ltd",
+      name: "Owen",
+    
       review: "Thank you, excellent service.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Adam",
-      name: "Adam Barry",
-      handle: "The Polaris Group",
+      name: "Adam",
+      
       review: "Good work and paid on time.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
-      name: "David Davies",
-      handle: "D&L Davies Limited",
+      name: "David",
+      
       review: "EXCELLENT TO WORK FOR, highly recommend.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Keith",
-      name: "Keith Baron John Strickland",
-      handle: "WH Bowker Ltd",
+      name: "Keith",
+      
       review: "Excellent, very professional.",
     },
   ],
