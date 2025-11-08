@@ -28,11 +28,8 @@ export const Customers = () => {
 
         {/* First row always visible */}
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-          {REVIEWS.all.slice(0, 3).map((r) => (
-            <Card
-              style={{ padding: "20px", minHeight: 180 }}
-              key={r.name + r.handle}
-            >
+          {REVIEWS.all.slice(0, 3).map((r, key) => (
+            <Card style={{ padding: "20px", minHeight: 180 }} key={key}>
               <ReviewContent review={r} />
             </Card>
           ))}
@@ -48,10 +45,10 @@ export const Customers = () => {
               transition={{ duration: 0.4 }}
               className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-3"
             >
-              {REVIEWS.all.slice(3).map((r) => (
+              {REVIEWS.all.slice(3).map((r, key) => (
                 <Card
                   style={{ padding: "20px", minHeight: 180 }}
-                  key={r.name + r.handle}
+                  key={key}
                 >
                   <ReviewContent review={r} />
                 </Card>
@@ -82,7 +79,6 @@ const ReviewContent = ({ review }: { review: (typeof REVIEWS.all)[0] }) => (
       />
       <div>
         <span className="block font-medium text-zinc-300">{review.name}</span>
-        <span className="block text-zinc-500">{review.handle}</span>
       </div>
     </div>
     <p className="mb-1 font-semibold text-yellow-400">Rating: ★★★★★</p>
@@ -95,38 +91,38 @@ const REVIEWS = {
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Barry",
       name: "Barry",
-     
+
       review: "Great team to work with. Good communication and efficient.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kevin",
       name: "Kevin",
-     
+
       review:
         "Collected and delivered as per requests, special instructions followed with accuracy, excellent comms - Would recommend.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Owen",
       name: "Owen",
-    
+
       review: "Thank you, excellent service.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Adam",
       name: "Adam",
-      
+
       review: "Good work and paid on time.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
       name: "David",
-      
+
       review: "EXCELLENT TO WORK FOR, highly recommend.",
     },
     {
       src: "https://api.dicebear.com/7.x/avataaars/svg?seed=Keith",
       name: "Keith",
-      
+
       review: "Excellent, very professional.",
     },
   ],
