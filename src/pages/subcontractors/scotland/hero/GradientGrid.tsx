@@ -20,7 +20,7 @@ const GradientGrid = () => {
           already on route.
         </p>
         <GhostButton
-          onClick={() => router.push("/subcontracts")}
+          onClick={() => router.push("/subcontractors")}
           className="rounded-md px-4 py-2 text-lg text-zinc-100"
         >
           Explore Other Areas
