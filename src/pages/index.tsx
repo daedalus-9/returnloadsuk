@@ -7,6 +7,7 @@ import { Stats } from "@/components/features/stats/Stats";
 import { FiftyFiftyCard } from "@/components/fiftyFiftyCard/fiftyFiftyCard";
 import Footer from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
+import { PartnerJoinForm } from "@/components/partnerJoinForm/PartnerJoinForm";
 import { Pricing } from "@/components/pricing/Pricing";
 import { TrustedAcrossUK } from "@/components/trustedAcrossUK/TrustedAcrossUK";
 import { Barlow } from "next/font/google";
@@ -21,6 +22,7 @@ export default function Home() {
   return (
     <main className={barlowFont.className}>
       <Hero />
+      <PartnerJoinForm />
       <TrustedAcrossUK />
       <FeatureGrid />
       <CodeDemo />

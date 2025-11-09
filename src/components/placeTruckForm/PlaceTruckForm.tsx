@@ -3,20 +3,60 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useState } from "react";
 
-interface EnquiryFormProps {
-  region?: string; // e.g. "Scotland"
+interface PlaceTruckFormProps {
+  region?: string;
   className?: string;
 }
 
-export function EnquiryForm({
+export function PlaceTruckForm({
   region = "the UK",
   className,
-}: EnquiryFormProps) {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+}: PlaceTruckFormProps) {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [submittedName, setSubmittedName] = useState<string>("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Truck placement submitted");
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    const form = e.currentTarget;
+    const data = {
+      fullname: (form.fullname as HTMLInputElement).value,
+      companyname: (form.companyname as HTMLInputElement).value,
+      email: (form.email as HTMLInputElement).value,
+      phone: (form.phoneNumber as HTMLInputElement).value,
+      location: (form.location as HTMLInputElement).value,
+      availableFrom: (form.availableFrom as HTMLInputElement).value,
+      availableUntil: (form.availableUntil as HTMLInputElement).value,
+      message: (form.message as HTMLInputElement).value,
+      optOutEmails: (form.optOut as HTMLInputElement).checked, // true if they tick to NOT receive updates
+      region,
+    };
+
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/place-load`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      setSubmittedName(data.fullname);
+      setSuccess(true);
+      form.reset();
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -31,24 +71,21 @@ export function EnquiryForm({
         Place a Truck in {region}
       </h2>
 
-      {/* Contact Options */}
       <div className="flex flex-col gap-4 md:flex-row md:gap-6">
         <a
           href="tel:01633441457"
-          className="mt-3 max-w-lg text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 hover:underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
+          className="mt-3 text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 hover:underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
         >
           01633 441457
         </a>
-
         <a
           href="mailto:traffic@logic-freight.co.uk"
-          className="mt-3 max-w-lg text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 hover:underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
+          className="mt-3 text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 hover:underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
         >
           traffic@logic-freight.co.uk
         </a>
       </div>
 
-      {/* Form */}
       <form className="my-10 space-y-6" onSubmit={handleSubmit}>
         <input type="hidden" name="region" value={region} />
 
@@ -58,25 +95,14 @@ export function EnquiryForm({
             <Label htmlFor="fullname" className="text-base md:text-lg">
               Full name
             </Label>
-            <Input
-              id="fullname"
-              placeholder="John Smith"
-              type="text"
-              className="h-12 text-base md:h-14 md:text-lg"
-              required
-            />
+            <Input id="fullname" placeholder="John Smith" required />
           </LabelInputContainer>
 
           <LabelInputContainer>
             <Label htmlFor="companyname" className="text-base md:text-lg">
               Company name
             </Label>
-            <Input
-              id="companyname"
-              placeholder="John's Logistics"
-              type="text"
-              className="h-12 text-base md:h-14 md:text-lg"
-            />
+            <Input id="companyname" placeholder="John's Logistics" />
           </LabelInputContainer>
         </div>
 
@@ -88,9 +114,8 @@ export function EnquiryForm({
             </Label>
             <Input
               id="email"
-              placeholder="johnsmith@gmail.com"
               type="email"
-              className="h-12 text-base md:h-14 md:text-lg"
+              placeholder="johnsmith@gmail.com"
               required
             />
           </LabelInputContainer>
@@ -99,12 +124,7 @@ export function EnquiryForm({
             <Label htmlFor="phoneNumber" className="text-base md:text-lg">
               Phone Number
             </Label>
-            <Input
-              id="phoneNumber"
-              placeholder="+44 7123 456 789"
-              type="tel"
-              className="h-12 text-base md:h-14 md:text-lg"
-            />
+            <Input id="phoneNumber" placeholder="+44 7123 456 789" required />
           </LabelInputContainer>
         </div>
 
@@ -117,8 +137,6 @@ export function EnquiryForm({
             <Input
               id="location"
               placeholder={`Location in ${region}`}
-              type="text"
-              className="h-12 text-base md:h-14 md:text-lg"
               required
             />
           </LabelInputContainer>
@@ -127,23 +145,14 @@ export function EnquiryForm({
             <Label htmlFor="availableFrom" className="text-base md:text-lg">
               Available from
             </Label>
-            <Input
-              id="availableFrom"
-              type="date"
-              className="h-12 text-base md:h-14 md:text-lg"
-              required
-            />
+            <Input id="availableFrom" type="date" required />
           </LabelInputContainer>
 
           <LabelInputContainer>
             <Label htmlFor="availableUntil" className="text-base md:text-lg">
               Available until
             </Label>
-            <Input
-              id="availableUntil"
-              type="date"
-              className="h-12 text-base md:h-14 md:text-lg"
-            />
+            <Input id="availableUntil" type="date" />
           </LabelInputContainer>
         </div>
 
@@ -154,22 +163,49 @@ export function EnquiryForm({
           </Label>
           <Input
             id="message"
-            placeholder={`Type any extra details about your truck placement in ${region}...`}
-            type="text"
-            className="h-12 text-base md:h-14 md:text-lg"
+            placeholder={`Any extra details about your truck placement in ${region}...`}
           />
         </LabelInputContainer>
 
+        {/* ✅ Opt-out Checkbox */}
+        <div className="flex items-start gap-3 pt-2">
+          <Input
+            id="optOut"
+            name="optOut"
+            type="checkbox"
+            defaultChecked={false}
+            className="mt-1 h-5 w-5 rounded border-neutral-300 text-black focus:ring-2 focus:ring-black dark:border-neutral-600 dark:text-white"
+          />
+          <Label
+            htmlFor="optOut"
+            className="text-sm leading-snug text-neutral-700 dark:text-neutral-300"
+          >
+            You may receive occasional updates and partner information from
+            Logic Freight. Tick this box if you <strong>do not</strong> wish to
+            receive these communications.
+          </Label>
+        </div>
+
         {/* Submit */}
         <button
-          className="group/btn relative block h-12 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 text-lg font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] transition-transform duration-200 hover:scale-[1.02] md:h-14 md:text-xl dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
           type="submit"
+          disabled={loading}
+          className="group/btn relative block h-12 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 text-lg font-medium text-white transition-transform duration-200 hover:scale-[1.02] disabled:opacity-60 md:h-14 md:text-xl"
         >
-          Submit Placement →
+          {loading ? "Submitting..." : "Submit"}
           <BottomGradient />
         </button>
 
-        <div className="my-10 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
+        {/* ✅ Feedback Messages */}
+        {success && (
+          <p className="text-center font-medium text-green-600">
+            Thank you {submittedName}, your form has been submitted
+            successfully.
+          </p>
+        )}
+        {error && (
+          <p className="text-center font-medium text-red-600">{error}</p>
+        )}
       </form>
     </div>
   );

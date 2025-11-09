@@ -1,5 +1,5 @@
 import { CoverageAreas } from "@/components/coverage/CoverageAreas";
-import { EnquiryForm } from "@/components/enquiryForm/EnquiryForm";
+import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
 import { Stats } from "@/components/features/stats/Stats";
 import Footer from "@/components/footer/Footer";
 import React from "react";
@@ -39,10 +39,9 @@ export default function Scotland() {
         areas={scotlandRoutes}
         region="Scotland"
       />
-      <EnquiryForm region="Scotland" />
+      <PlaceTruckForm region="Scotland" />
 
       <GradientGrid />
-  
     </main>
   );
 }

@@ -2,14 +2,14 @@
 
 import { GhostButton } from "@/components/buttons/GhostButton";
 import Footer from "@/components/footer/Footer";
-import { HaulierJoinForm } from "@/components/hauilierJoinForm/HaulierJoinForm";
+import { PartnerJoinForm } from "@/components/partnerJoinForm/PartnerJoinForm";
 
 import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-export default function JoinHaulier() {
+export default function JoinPartner() {
   const formRef = useRef<HTMLDivElement>(null);
 
   const scrollToForm = () => {
@@ -38,7 +38,7 @@ export default function JoinHaulier() {
             transition={{ duration: 1, delay: 0.2 }}
             className="max-w-2xl text-zinc-400 sm:text-lg md:text-xl"
           >
-            Logic Freight partners with vetted hauliers across the UK. Fill out
+            Logic Freight partners with vetted Partners across the UK. Fill out
             your details to join our network and start getting haulage
             opportunities.
           </motion.p>
@@ -61,7 +61,7 @@ export default function JoinHaulier() {
               onClick={scrollToForm}
               className="rounded-md px-4 py-2 text-lg text-zinc-100"
             >
-              Join as a Haulier
+              Join as a Partner
             </GhostButton>
           </motion.div>
         </MaxWidthWrapper>
@@ -69,7 +69,7 @@ export default function JoinHaulier() {
 
       {/* Form Section */}
       <div ref={formRef} id="join-form" className="px-6 pb-24">
-        <HaulierJoinForm />
+        <PartnerJoinForm />
       </div>
     </main>
   );
