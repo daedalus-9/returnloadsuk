@@ -4,6 +4,7 @@ import { GhostButton } from "@/components/buttons/GhostButton";
 import { SplashButton } from "@/components/buttons/SplashButton";
 import { GlowingChip } from "@/components/utils/GlowingChip";
 import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
+import { scrollToForm } from "@/components/utils/scrollToForm";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { FiArrowRight } from "react-icons/fi";
@@ -11,12 +12,7 @@ import { FiArrowRight } from "react-icons/fi";
 const Content = () => {
   const router = useRouter();
 
-  const handleScrollToForm = () => {
-    const formSection = document.getElementById("quote-form");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+ 
 
   return (
     <section className="relative border-b border-zinc-800">
@@ -60,10 +56,10 @@ const Content = () => {
           className="flex flex-col items-center gap-4 sm:flex-row"
         >
           <SplashButton
-            onClick={handleScrollToForm}
+            onClick={scrollToForm}
             className="flex items-center gap-2"
           >
-            Get a Quote
+            Place a Truck
             <FiArrowRight />
           </SplashButton>
 
