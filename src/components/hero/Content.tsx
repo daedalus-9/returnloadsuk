@@ -53,12 +53,12 @@ const Content = () => {
           Get started
           <FiArrowRight />
         </SplashButton>
-        <GhostButton
+        {/* <GhostButton
           onClick={() => router.push("/#why-logic-freight")}
           className="rounded-md px-4 py-2 text-lg text-zinc-100"
         >
           Why Logic Freight
-        </GhostButton>
+        </GhostButton> */}
       </motion.div>
     </MaxWidthWrapper>
   );
