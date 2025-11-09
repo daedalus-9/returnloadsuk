@@ -38,7 +38,7 @@ export function PartnerJoinForm({
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || "https://your-backend-url.com"}/api/partner-join`,
+        `${process.env.NEXT_PUBLIC_API_URL}/partner-join`,
         {
           method: "POST",
           headers: {
