@@ -32,7 +32,7 @@ export const CodeDemo = () => {
         <Stepper />
         <SplashButton
           onClick={() => scrollToForm()}
-          className="flex items-center gap-2"
+          className="mx-auto mt-10 flex items-center gap-2"
         >
           Get started
           <FiArrowRight />
