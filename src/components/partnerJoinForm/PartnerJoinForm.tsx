@@ -32,7 +32,6 @@ export function PartnerJoinForm({
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
     console.log("Submitting form data:", formData);
     e.preventDefault();
     setLoading(true);
@@ -72,6 +71,7 @@ export function PartnerJoinForm({
 
   return (
     <div
+      id="form"
       className={cn(
         "shadow-input m-auto w-full max-w-lg rounded-none bg-white p-6 md:rounded-2xl md:p-10 dark:bg-black",
         className
