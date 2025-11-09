@@ -8,6 +8,57 @@ import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
+export const metadata = {
+  title: "Join Logic Freight | UK Haulage Subcontractor & Owner Driver Network",
+  description:
+    "Become a Logic Freight partner and access consistent UK haulage opportunities. We connect subcontractors, hauliers, and owner drivers with verified return loads, full and part loads across England, Scotland, and Wales.",
+  keywords: [
+    "join haulage network",
+    "haulage subcontractor opportunities",
+    "UK haulage partners",
+    "owner drivers wanted",
+    "return loads UK",
+    "return loads Scotland",
+    "haulage work UK",
+    "lorry subcontractor",
+    "freight subcontractor",
+    "tautliner haulage jobs",
+    "flatbed subcontractors",
+    "curtainsider work",
+    "UK transport partnerships",
+    "HGV owner driver",
+    "haulage company partnerships",
+    "general haulage work",
+    "subcontract haulage UK",
+    "freight exchange UK",
+    "join logistics network",
+  ],
+  openGraph: {
+    title: "Join Logic Freight | UK Haulage Partner Network",
+    description:
+      "Partner with Logic Freight and start receiving return load and subcontract haulage opportunities across the UK. Join a trusted nationwide haulier network today.",
+    url: "https://www.logicfreight.co.uk/join-partner",
+    siteName: "Logic Freight",
+    images: [
+      {
+        url: "/assets/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Join Logic Freight Haulage Network",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Join Logic Freight | UK Haulage Partner Network",
+    description:
+      "Connect with verified haulage work and return loads. Logic Freight helps subcontractors and owner drivers across the UK keep their trucks full and moving.",
+    images: ["/assets/images/logo.png"],
+  },
+};
+ 
 
 export default function JoinPartner() {
   const formRef = useRef<HTMLDivElement>(null);

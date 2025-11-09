@@ -6,6 +6,59 @@ import React from "react";
 import Content from "../england/hero/Content";
 import GradientGrid from "../england/hero/GradientGrid";
 
+export const metadata = {
+  title: "Wales Haulage & Return Loads | Logic Freight Subcontractor Network",
+  description:
+    "Logic Freight connects hauliers and subcontractors across Wales with verified return loads and full or part haulage work. From Cardiff and Swansea to Wrexham and Bangor, our tautliner, flatbed, and curtainsider network keeps your trucks loaded and earning across the UK.",
+  keywords: [
+    "Wales haulage",
+    "return loads Wales",
+    "Wales subcontractor haulage",
+    "Wales logistics",
+    "Cardiff haulage",
+    "Swansea haulage",
+    "Wrexham haulage",
+    "Bangor haulage",
+    "return loads UK",
+    "return loads Scotland",
+    "flatbed haulage Wales",
+    "tautliner haulage Wales",
+    "curtainsider transport Wales",
+    "subcontract haulage work",
+    "owner drivers Wales",
+    "haulage jobs Wales",
+    "backloads Wales",
+    "road freight Wales",
+    "general haulage Wales",
+    "freight exchange Wales",
+    "UK haulage network",
+  ],
+  openGraph: {
+    title: "Wales Haulage & Return Loads | Logic Freight",
+    description:
+      "Haulage work and subcontract opportunities across Wales. Logic Freight connects you with return loads from Cardiff, Swansea, and Wrexham to major UK cities.",
+    url: "https://www.logicfreight.co.uk/wales",
+    siteName: "Logic Freight",
+    images: [
+      {
+        url: "/assets/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Logic Freight Wales Haulage Network",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wales Haulage & Return Loads | Logic Freight",
+    description:
+      "Find subcontract haulage work and return loads across Wales with Logic Freight — connecting hauliers to full and part load opportunities across the UK.",
+    images: ["/assets/images/logo.png"],
+  },
+};
+
 export default function Wales() {
   const walesRoutes = [
     // 🚛 High-demand Wales internal routes

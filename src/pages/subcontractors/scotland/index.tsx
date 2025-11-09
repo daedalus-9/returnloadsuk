@@ -6,6 +6,61 @@ import React from "react";
 import Content from "./hero/Content";
 import GradientGrid from "./hero/GradientGrid";
 
+export const metadata = {
+  title:
+    "Scotland Haulage & Return Loads | Logic Freight Subcontractor Network",
+  description:
+    "Logic Freight connects Scottish hauliers and subcontractors with verified return loads and haulage work across the UK. From Glasgow and Edinburgh to Aberdeen and Inverness, our flatbed, tautliner, and curtainsider fleet keeps your trucks loaded and earning.",
+  keywords: [
+    "Scotland haulage",
+    "return loads Scotland",
+    "Scottish subcontractor haulage",
+    "haulage work Scotland",
+    "Glasgow haulage",
+    "Edinburgh haulage",
+    "Aberdeen haulage",
+    "Inverness haulage",
+    "Dundee haulage",
+    "Highlands haulage",
+    "tautliner haulage Scotland",
+    "flatbed haulage Scotland",
+    "curtainsider transport Scotland",
+    "backloads Scotland",
+    "owner drivers Scotland",
+    "subcontract haulage UK",
+    "return loads UK",
+    "UK haulage network",
+    "Scottish logistics",
+    "HGV haulage Scotland",
+    "freight exchange Scotland",
+    "general haulage Scotland",
+  ],
+  openGraph: {
+    title: "Scotland Haulage & Return Loads | Logic Freight",
+    description:
+      "Join Logic Freight’s trusted subcontractor network. We connect Scottish hauliers with consistent return loads and UK-wide haulage work.",
+    url: "https://www.logicfreight.co.uk/scotland",
+    siteName: "Logic Freight",
+    images: [
+      {
+        url: "/assets/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Logic Freight Scotland Haulage Network",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scotland Haulage & Return Loads | Logic Freight",
+    description:
+      "Haulage and subcontract opportunities across Scotland. Logic Freight connects you with return loads from Glasgow, Edinburgh, and Aberdeen to major UK cities.",
+    images: ["/assets/images/logo.png"],
+  },
+};
+
 export default function Scotland() {
   const scotlandRoutes = [
     // 🚛 High-demand UK routes from/to Scotland

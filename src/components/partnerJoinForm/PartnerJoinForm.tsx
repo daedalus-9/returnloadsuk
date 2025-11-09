@@ -32,6 +32,8 @@ export function PartnerJoinForm({
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+    console.log("Submitting form data:", formData);
     e.preventDefault();
     setLoading(true);
     setStatus("idle");
