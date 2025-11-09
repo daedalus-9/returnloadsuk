@@ -105,13 +105,19 @@ const NavLink = ({
 // -------- CTA BUTTONS --------
 const CTAs = () => (
   <div className="flex items-center gap-3">
-    <button className="flex items-center gap-2 rounded-lg border-2 border-white px-4 py-2 font-semibold text-white transition-colors hover:bg-white hover:text-black">
+    <a
+      href="mailto:traffic@logic-freight.co.uk"
+      className="flex items-center gap-2 rounded-lg border-2 border-white px-4 py-2 font-semibold text-white transition-colors hover:bg-white hover:text-black"
+    >
       <FaMailBulk />
       <span>Email Us</span>
-    </button>
-    <button className="rounded-lg border-2 border-emerald-300 bg-emerald-300 px-4 py-2 font-semibold text-black transition-colors hover:border-emerald-600 hover:bg-emerald-600 hover:text-white">
+    </a>
+    <a
+      href="tel:01633441457"
+      className="rounded-lg border-2 border-emerald-300 bg-emerald-300 px-4 py-2 font-semibold text-black transition-colors hover:border-emerald-600 hover:bg-emerald-600 hover:text-white"
+    >
       📞 01633 441457
-    </button>
+    </a>
   </div>
 );
 
