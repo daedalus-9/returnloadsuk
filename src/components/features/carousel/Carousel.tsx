@@ -161,12 +161,5 @@ const features: FeatureType[] = [
     title: "Expert Support",
     description:
       "Our logistics team is ready to help whenever you need assistance.",
-  },
-  {
-    id: 6,
-    Icon: FiPhone,
-    title: "24/7 Contact",
-    description:
-      "Reach out anytime to manage urgent loads or changes in schedule.",
-  },
+  }
 ];
