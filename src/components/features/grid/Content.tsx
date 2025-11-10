@@ -8,6 +8,8 @@ import { MiniCard1 } from "./MiniCard1";
 import { MiniCard2 } from "./MiniCard2";
 import { SimpleGrid } from "./SimpleGrid";
 import { Tower } from "./Tower";
+import { BubbleButton } from "@/components/buttons/BubbleButton";
+import { scrollToForm } from "@/components/utils/scrollToForm";
 
 export const Content = () => {
   return (
@@ -15,21 +17,31 @@ export const Content = () => {
       <MaxWidthWrapper className="relative z-20 pb-20 pt-20 md:pb-28 md:pt-40">
         <SectionHeadingSpacing>
           <SectionHeading>
-            Smarter haulage connections
+            Return loads made smarter
             <br />
             <span className="bg-gradient-to-br from-blue-400 to-blue-700 bg-clip-text text-transparent">
-              built for efficiency and trust
+              haulage connections built on trust
             </span>
           </SectionHeading>
           <SectionSubheading>
-            We simplify how loads get matched with the right subcontractors —
-            saving time, cutting empty miles, and reducing fuel waste.
+            Logic Freight connects available trucks with verified return loads
+            across the UK — cutting empty miles, saving fuel, and improving
+            profits for hauliers and subcontractors.
           </SectionSubheading>
         </SectionHeadingSpacing>
 
         <Grid />
+
+        {/* Divider */}
         <div className="my-12 h-[1px] w-full bg-gradient-to-r from-blue-800/0 via-blue-400/50 to-blue-800/0 md:my-20" />
+
         <SimpleGrid />
+
+        <div className="mt-16 flex justify-center">
+          <BubbleButton onClick={() => scrollToForm()}>
+            Join the Logic Freight Return Loads Network
+          </BubbleButton>
+        </div>
       </MaxWidthWrapper>
     </section>
   );

@@ -22,6 +22,7 @@ export function PartnerJoinForm({
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submittedName, setSubmittedName] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value, type, checked } = e.target;
@@ -32,7 +33,6 @@ export function PartnerJoinForm({
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("Submitting form data:", formData);
     e.preventDefault();
     setLoading(true);
     setStatus("idle");
@@ -54,6 +54,7 @@ export function PartnerJoinForm({
 
       if (!response.ok) throw new Error("Failed to submit form");
 
+      setSubmittedName(formData.fullname);
       setStatus("success");
       setFormData({
         fullname: "",
@@ -78,8 +79,14 @@ export function PartnerJoinForm({
       )}
     >
       <h2 className="text-2xl font-bold text-neutral-800 sm:text-3xl md:text-4xl dark:text-neutral-200">
-        Join as a Partner
+        Join the Logic Freight Partner Network
       </h2>
+
+      <p className="mt-2 text-base text-neutral-600 dark:text-neutral-400">
+        Join Logic Freight’s trusted UK haulage network. Match and get matched with{" "}
+        <strong>return loads</strong> and transport opportunities across
+        England, Scotland, and Wales.
+      </p>
 
       <form className="my-10 space-y-6" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4">
@@ -159,8 +166,8 @@ export function PartnerJoinForm({
 
         {status === "success" && (
           <p className="text-center font-medium text-green-600">
-            ✅ Thank you {formData.fullname} for your enquiry. We’ll be in touch
-            soon.
+            ✅ Thank you {submittedName || "for your enquiry"}. We’ll be in
+            touch soon.
           </p>
         )}
         {status === "error" && (

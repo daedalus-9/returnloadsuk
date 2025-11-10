@@ -4,15 +4,19 @@ import { motion } from "framer-motion";
 
 export const TrustedAcrossUK = () => {
   return (
-    <section className="relative mx-auto max-w-7xl overflow-hidden border-t border-zinc-800 py-10">
+    <section
+      className="relative mx-auto max-w-7xl overflow-hidden border-t border-zinc-800 py-10"
+      aria-labelledby="trusted-uk-haulage"
+    >
       <motion.span
+        id="trusted-uk-haulage"
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         viewport={{ once: true }}
         className="mx-auto mb-10 block w-fit bg-gradient-to-br from-zinc-200 to-zinc-400 bg-clip-text text-center text-lg font-medium text-transparent"
       >
-        Proudly serving clients across the UK
+        Trusted for return loads and haulage across the UK
       </motion.span>
 
       <div className="relative flex overflow-hidden">
@@ -27,6 +31,19 @@ export const TrustedAcrossUK = () => {
         <div className="pointer-events-none absolute left-0 top-0 h-full w-1/4 bg-gradient-to-r from-zinc-950 to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-1/4 bg-gradient-to-l from-zinc-950 to-transparent" />
       </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+        viewport={{ once: true }}
+        className="mx-auto mt-8 max-w-3xl text-center text-base text-zinc-400 md:text-lg"
+      >
+        Logic Freight connects customers and subcontractors with{" "}
+        <strong>return loads</strong> throughout England, Scotland, and Wales —
+        reducing empty miles and keeping UK haulage efficient, reliable, and
+        sustainable.
+      </motion.p>
     </section>
   );
 };

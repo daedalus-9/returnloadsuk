@@ -19,28 +19,26 @@ const barlowFont = Barlow({
 });
 
 export const metadata = {
-  title: "Logic Freight | UK Haulage & Return Loads Specialists",
+  title: "Return Loads | Logic Freight UK Haulage",
   description:
-    "Logic Freight connects customers with trusted UK hauliers offering efficient return loads, full and part loads, and nationwide transport solutions. Specialists in tautliner, flatbed, and curtainsider haulage — serving England, Scotland, and Wales with on-time, cost-effective logistics.",
+    "Find reliable UK return loads with Logic Freight — specialists in backloads, full and part loads, and nationwide haulage. Connect with trusted hauliers across England, Scotland, and Wales for cost-effective, on-time transport solutions.",
   keywords: [
-    "UK haulage",
     "return loads",
+    "UK return loads",
     "return loads UK",
     "return loads Scotland",
     "return loads England",
     "return loads Wales",
+    "backloads",
+    "freight exchange",
+    "UK haulage",
+    "haulage company UK",
     "tautliner haulage",
     "flatbed haulage",
     "curtainsider transport",
-    "pallet delivery",
-    "backloads",
-    "freight exchange",
-    "road haulage services",
-    "UK logistics",
     "general haulage",
-    "nationwide transport",
-    "haulage company UK",
-    "same day haulage",
+    "road haulage services",
+    "pallet delivery",
     "full load transport",
     "part load delivery",
     "haulage contractors",
@@ -48,12 +46,13 @@ export const metadata = {
     "HGV transport",
     "logistics solutions UK",
     "haulier network",
+    "nationwide transport",
   ],
   openGraph: {
-    title: "Logic Freight | UK Haulage & Return Loads Specialists",
+    title: "Return Loads | Logic Freight UK Haulage",
     description:
-      "Smarter haulage, simplified logistics. Logic Freight connects loads with trusted hauliers across the UK — reducing empty miles and cutting transport costs.",
-    url: "https://www.logicfreight.co.uk",
+      "Logic Freight connects UK return loads with trusted hauliers — reducing empty miles, cutting costs, and delivering reliable nationwide transport solutions.",
+    url: "https://www.logic-freight.co.uk",
     siteName: "Logic Freight",
     images: [
       {
@@ -68,9 +67,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Logic Freight | Smarter UK Haulage",
+    title: "Return Loads | Logic Freight UK Haulage",
     description:
-      "Connecting loads with the right hauliers across the UK — specialists in return loads, tautliner, flatbed, and curtainsider transport.",
+      "Connecting UK return loads with the right hauliers — specialists in tautliner, flatbed, and curtainsider transport across England, Scotland, and Wales.",
     images: ["/assets/images/logo.png"],
   },
 };
