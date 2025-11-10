@@ -3,8 +3,8 @@ import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
 import { Stats } from "@/components/features/stats/Stats";
 import Footer from "@/components/footer/Footer";
 import React from "react";
-import Content from "../england/hero/Content";
-import GradientGrid from "../england/hero/GradientGrid";
+import Content from "../wales/hero/Content";
+import GradientGrid from "../wales/hero/GradientGrid";
 
 export const metadata = {
   title: "Wales Haulage & Return Loads | Logic Freight Subcontractor Network",
