@@ -14,6 +14,16 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/rate-review-job",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/about-us/",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
