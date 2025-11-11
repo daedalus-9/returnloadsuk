@@ -9,6 +9,7 @@ import { PartnerJoinForm } from "@/components/partnerJoinForm/PartnerJoinForm";
 import { TrustedAcrossUK } from "@/components/trustedAcrossUK/TrustedAcrossUK";
 
 import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
+import { scrollToForm } from "@/components/utils/scrollToForm";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
@@ -68,12 +69,6 @@ export const metadata = {
 
 export default function JoinPartner() {
   const formRef = useRef<HTMLDivElement>(null);
-
-  const scrollToForm = () => {
-    if (formRef.current) {
-      formRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <main className="relative flex min-h-screen flex-col bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
