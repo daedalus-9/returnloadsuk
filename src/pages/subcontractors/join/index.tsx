@@ -6,6 +6,7 @@ import { Stats } from "@/components/features/stats/Stats";
 import { FiftyFiftyCard } from "@/components/fiftyFiftyCard/fiftyFiftyCard";
 import Footer from "@/components/footer/Footer";
 import { PartnerJoinForm } from "@/components/partnerJoinForm/PartnerJoinForm";
+import { TrustedAcrossUK } from "@/components/trustedAcrossUK/TrustedAcrossUK";
 
 import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
 import { motion } from "framer-motion";
@@ -130,8 +131,9 @@ export default function JoinPartner() {
       </section>
 
       {/* Form Section */}
-      <div ref={formRef} id="join-form" className="px-6 pb-24">
+      <div ref={formRef} id="join-form" className="px-6 py-24">
         <PartnerJoinForm />
+        <TrustedAcrossUK />
       </div>
       <Stats />
       <FiftyFiftyCard />

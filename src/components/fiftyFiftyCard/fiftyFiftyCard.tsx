@@ -20,9 +20,8 @@ export const FiftyFiftyCard = () => {
         <Right />
       </section>
       <SplashButton
-
         onClick={() => scrollToForm()}
-        className="mx-auto mt-10 flex items-center gap-2 bg-emerald-500"
+        className="mx-auto mb-10 mt-6 flex items-center gap-2 bg-emerald-500"
       >
         Get started
         <FiArrowRight />
