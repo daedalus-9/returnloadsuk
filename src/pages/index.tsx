@@ -46,7 +46,7 @@ export const metadata = {
     siteName: "Return Loads UK",
     images: [
       {
-        url: "/assets/truck_bg.jpg",
+        url: "/assets/truck_bg.webp",
         width: 1200,
         height: 630,
         alt: "Return Loads UK – Trucks on the Road",
@@ -60,7 +60,7 @@ export const metadata = {
     title: "Return Loads UK | Get Your Return Loads Now",
     description:
       "Claim return loads, backloads, and available loads near you instantly across the UK.",
-    images: ["/assets/truck_bg.jpg"],
+    images: ["/assets/truck_bg.webp"],
   },
 };
 
@@ -74,7 +74,7 @@ export default function Home() {
       "Return Loads UK lets hauliers find return loads, backloads, and available loads across England, Scotland, and Wales instantly.",
     email: "traffic@logic-freight.co.uk",
     telephone: "+44 1633 441457",
-    image: "/assets/truck_bg.jpg",
+    image: "/assets/truck_bg.webp",
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

@@ -36,7 +36,7 @@ export const metadata = {
     siteName: "Return Loads UK",
     images: [
       {
-        url: "/assets/truck_bg.jpg",
+        url: "/assets/truck_bg.webp",
         width: 1200,
         height: 630,
         alt: "Return Loads England – Get Your Loads Now",
@@ -50,7 +50,7 @@ export const metadata = {
     title: "Return Loads & Reloads England | Get Your Loads Now",
     description:
       "Return loads, reloads, and available loads near you in England. Claim them instantly and keep your trucks full.",
-    images: ["/assets/truck_bg.jpg"],
+    images: ["/assets/truck_bg.webp"],
   },
 };
 

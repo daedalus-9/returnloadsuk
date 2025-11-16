@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:description"
           content="Find verified return loads across the UK instantly. Connect with trusted hauliers and reduce empty miles."
         />
-        <meta property="og:image" content="/assets/truck_bg.jpg" />
+        <meta property="og:image" content="/assets/truck_bg.webp" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.returnloadsuk.co.uk" />
       </Head>

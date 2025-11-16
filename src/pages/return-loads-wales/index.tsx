@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "Return Loads UK",
     images: [
       {
-        url: "/assets/truck_bg.jpg",
+        url: "/assets/truck_bg.webp",
         width: 1200,
         height: 630,
         alt: "Return Loads Wales – Logic Freight",
@@ -49,7 +49,7 @@ export const metadata = {
     title: "Return Loads Wales | Get Your Return Loads Now",
     description:
       "Verified return loads, reloads, and available haulage across Wales. Reduce empty miles and keep your trucks full with Logic Freight.",
-    images: ["/assets/truck_bg.jpg"],
+    images: ["/assets/truck_bg.webp"],
   },
 };
 
