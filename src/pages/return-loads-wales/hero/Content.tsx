@@ -54,8 +54,12 @@ const Content = () => {
           className="flex flex-col items-center gap-4 sm:flex-row"
         >
           {/* Primary CTA: call */}
-          <SplashButton className="mx-auto inline-flex items-center gap-2 rounded-md bg-emerald-500 px-4 py-2 text-lg transition hover:bg-emerald-600">
-            <a href="tel:01633441457">📞 Get Loads Now!</a>
+          <SplashButton
+            as="a"
+            href="tel:01633441457"
+            className="mx-auto inline-flex items-center gap-2"
+          >
+            📞 Get Loads Now!
             <FiArrowRight />
           </SplashButton>
 
