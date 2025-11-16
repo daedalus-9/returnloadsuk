@@ -22,18 +22,20 @@ const barlowFont = Barlow({
 export default function Home() {
   const title = "Return Loads UK";
   const description =
-    "Find verified return loads, backloads, and available haulage loads across the UK. Connect instantly with trusted freight from England, Scotland, and Wales and reduce empty running with Logic Freight.";
+    "Return Loads UK helps HGV drivers and haulage companies find verified return loads, UK backloads, and available freight nationwide. Reduce empty miles and secure consistent work with trusted UK load matching.";
 
   const keywords = [
+    "return loads",
     "return loads UK",
     "UK return loads",
-    "backloads UK",
-    "available loads UK",
     "return loads near me",
-    "haulage loads UK",
+    "return loads platform",
+    "backloads",
+    "backloads UK",
     "HGV return loads",
-    "find loads UK",
+    "haulage loads UK",
     "load matching UK",
+    "find loads UK",
   ];
 
   const structuredData = {
@@ -45,8 +47,8 @@ export default function Home() {
       "Return Loads UK helps hauliers find verified return loads, backloads, and available haulage work across the UK.",
     email: "traffic@logic-freight.co.uk",
     telephone: "+44 1633 441457",
-    logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
-    image: "https://www.returnloadsuk.co.uk/assets/truck_bg.webp",
+    logo: "https://www.returnloadsuk.co.uk/public/assets/images/logo.png",
+    image: "https://www.returnloadsuk.co.uk/public/assets/images/truck_bg.webp",
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -86,7 +88,7 @@ export default function Home() {
         <meta property="og:site_name" content="Return Loads UK" />
         <meta
           property="og:image"
-          content="https://www.returnloadsuk.co.uk/assets/truck_bg.webp"
+          content="https://www.returnloadsuk.co.uk/public/assets/images/truck_bg.webp"
         />
 
         {/* Twitter */}
@@ -95,7 +97,7 @@ export default function Home() {
         <meta name="twitter:description" content={description} />
         <meta
           name="twitter:image"
-          content="https://www.returnloadsuk.co.uk/assets/truck_bg.webp"
+          content="https://www.returnloadsuk.co.uk/public/assets/images/truck_bg.webp"
         />
 
         {/* Structured Data */}

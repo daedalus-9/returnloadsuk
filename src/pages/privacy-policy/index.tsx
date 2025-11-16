@@ -95,10 +95,10 @@ export default function PrivacyPolicy() {
             Under UK GDPR, you have the right to access, correct, or delete your
             personal information. To make a request, please contact us at{" "}
             <a
-              href="mailto:traffic@logicfreight.co.uk"
+              href="mailto:traffic@logic-freight.co.uk"
               className="text-zinc-50 underline transition hover:text-zinc-400"
             >
-              traffic@logicfreight.co.uk
+              traffic@logic-freight.co.uk
             </a>
             .
           </p>
@@ -115,10 +115,10 @@ export default function PrivacyPolicy() {
             <br />
             Email:{" "}
             <a
-              href="mailto:traffic@logicfreight.co.uk"
+              href="mailto:traffic@logic-freight.co.uk"
               className="text-zinc-50 underline transition hover:text-zinc-400"
             >
-              traffic@logicfreight.co.uk
+              traffic@logic-freight.co.uk
             </a>
           </p>
         </section>

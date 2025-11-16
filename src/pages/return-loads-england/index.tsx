@@ -61,7 +61,7 @@ const structuredData = {
   "@type": "Organization",
   name: "Logic Freight",
   url: "https://www.returnloadsuk.co.uk",
-  logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
+  logo: "https://www.returnloadsuk.co.uk/public/assets/images/logo.png",
   email: "traffic@logic-freight.co.uk",
   telephone: "01633 441457",
   contactPoint: {

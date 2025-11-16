@@ -33,7 +33,7 @@ export default function Document() {
               "@type": "Organization",
               name: "Return Loads UK",
               url: "https://www.returnloadsuk.co.uk",
-              logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
+              logo: "https://www.returnloadsuk.co.uk/public/assets/images/logo.png",
               description:
                 "Return Loads UK helps hauliers find verified return loads, backloads, and available haulage work across the UK.",
               telephone: "+44 1633 441457",

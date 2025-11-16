@@ -39,7 +39,7 @@ export const metadata = {
         url: "/assets/truck_bg.webp",
         width: 1200,
         height: 630,
-        alt: "Return Loads Scotland – Logic Freight",
+        alt: "Return Loads Scotland",
       },
     ],
     locale: "en_GB",
@@ -59,7 +59,7 @@ const structuredData = {
   "@type": "Organization",
   name: "Logic Freight",
   url: "https://www.returnloadsuk.co.uk",
-  logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
+  logo: "https://www.returnloadsuk.co.uk/public/assets/images/logo.png",
   email: "traffic@logic-freight.co.uk",
   telephone: "01633 441457",
   contactPoint: {
