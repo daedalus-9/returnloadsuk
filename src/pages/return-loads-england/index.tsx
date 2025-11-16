@@ -7,31 +7,33 @@ import Content from "../return-loads-england/hero/Content";
 import GradientGrid from "../return-loads-england/hero/GradientGrid";
 
 export const metadata = {
-  title:
-    "Return Loads & Reloads England | Available Loads Near Me – Get Your Loads Now",
+  title: "Return Loads England | Reloads & Backloads Near Me – Logic Freight",
   description:
-    "Grab return loads, reloads, and part/full loads across England instantly. Available near you from London, Manchester, Birmingham, Leeds, and beyond. Keep your trucks full and reduce empty miles today.",
+    "Secure England return loads, reloads, and available backloads fast. Covering London, Manchester, Birmingham, Leeds, Liverpool, Bristol, and all major English routes. Maximise truck earnings and cut empty running.",
   keywords: [
     "return loads England",
+    "England return loads",
     "reloads England",
+    "backloads England",
     "available loads England",
+    "England loads near me",
     "return loads near me",
-    "reloads near me",
-    "available loads near me",
-    "get loads now England",
-    "recurring loads England",
-    "full load transport England",
-    "part load transport England",
+    "HGV loads England",
     "UK backloads",
-    "HGV haulage England",
-    "tautliner loads England",
-    "flatbed loads England",
+    "haulage England",
+    "English transport jobs",
+    "full loads England",
+    "part loads England",
     "curtainsider loads England",
+    "flatbed loads England",
+    "tautliner loads England",
+    "Logic Freight",
+    "return loads UK",
   ],
   openGraph: {
-    title: "Return Loads & Reloads England | Get Your Loads Now",
+    title: "Return Loads England | Reloads & Backloads Near You",
     description:
-      "Claim return loads, reloads, and available loads near you. Keep your trucks full and move freight across England efficiently. Don’t miss out on high-demand loads today.",
+      "Find and secure return loads, reloads, and available backloads across England. Keep your fleet earning with loads from London, Manchester, Birmingham, Leeds, Liverpool, and more.",
     url: "https://www.returnloadsuk.co.uk/return-loads-england",
     siteName: "Return Loads UK",
     images: [
@@ -39,7 +41,7 @@ export const metadata = {
         url: "/assets/truck_bg.webp",
         width: 1200,
         height: 630,
-        alt: "Return Loads England – Get Your Loads Now",
+        alt: "Return Loads England – Logic Freight",
       },
     ],
     locale: "en_GB",
@@ -47,9 +49,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Return Loads & Reloads England | Get Your Loads Now",
+    title: "Return Loads England | Reloads & Backloads",
     description:
-      "Return loads, reloads, and available loads near you in England. Claim them instantly and keep your trucks full.",
+      "Find England return loads, reloads, and available loads near you. Keep your trucks earning every mile.",
     images: ["/assets/truck_bg.webp"],
   },
 };
@@ -59,8 +61,17 @@ const structuredData = {
   "@type": "Organization",
   name: "Logic Freight",
   url: "https://www.returnloadsuk.co.uk",
+  logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
   email: "traffic@logic-freight.co.uk",
   telephone: "01633 441457",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Customer Support",
+    email: "traffic@logic-freight.co.uk",
+    telephone: "01633 441457",
+    areaServed: "GB",
+    availableLanguage: "en",
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -72,22 +83,50 @@ const structuredData = {
   sameAs: [],
 };
 
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.returnloadsuk.co.uk",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "England",
+      item: "https://www.returnloadsuk.co.uk/return-loads-england",
+    },
+  ],
+};
+
 export default function England() {
   const englandRoutes = [
-    // High-demand England internal routes
-    { title: "London to Birmingham", location: "England" },
-    { title: "Manchester to Leeds", location: "England" },
-    { title: "Liverpool to Nottingham", location: "England" },
-    { title: "Bristol to Sheffield", location: "England" },
-    { title: "Southampton to Leicester", location: "England" },
-    { title: "Newcastle to Nottingham", location: "England" },
-    { title: "Derby to Manchester", location: "England" },
-
-    // England to Scotland/Wales
-    { title: "London to Edinburgh", location: "England / Scotland" },
-    { title: "Birmingham to Glasgow", location: "England / Scotland" },
-    { title: "Leeds to Cardiff", location: "England / Wales" },
-    { title: "Liverpool to Swansea", location: "England / Wales" },
+    { title: "London to Birmingham – Return Loads", location: "England" },
+    { title: "Manchester to Leeds – Reloads", location: "England" },
+    { title: "Liverpool to Nottingham – Backloads", location: "England" },
+    { title: "Bristol to Sheffield – Return Loads", location: "England" },
+    {
+      title: "Southampton to Leicester – Available Loads",
+      location: "England",
+    },
+    { title: "Newcastle to Nottingham – Return Loads", location: "England" },
+    {
+      title: "Derby to Manchester – Reload Opportunities",
+      location: "England",
+    },
+    {
+      title: "London to Edinburgh – UK Backloads",
+      location: "England / Scotland",
+    },
+    {
+      title: "Birmingham to Glasgow – Return Loads UK",
+      location: "England / Scotland",
+    },
+    { title: "Leeds to Cardiff – Reloads", location: "England / Wales" },
+    { title: "Liverpool to Swansea – Backloads", location: "England / Wales" },
   ];
 
   return (
@@ -112,28 +151,29 @@ export default function England() {
           content={metadata.twitter.description}
         />
         <meta name="twitter:image" content={metadata.twitter.images[0]} />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+        />
       </Head>
 
       <main className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
-        {/* Hero / Content */}
         <Content />
 
-        {/* Coverage Areas */}
         <CoverageAreas
-          title="High-Demand England Haulage"
-          description="Claim available return loads, reloads, and part/full loads across England’s busiest logistics hubs. From London to Manchester, Birmingham to Leeds, keep your trucks moving and maximise profits."
+          title="Return Loads England – High-Demand Routes"
+          description="Find return loads, reloads, and available part or full loads across England. From London to Manchester, Liverpool to Leeds, Bristol to Birmingham, keep your fleet moving and reduce empty miles."
           areas={englandRoutes}
           region="England"
         />
 
-        {/* Place Truck / Claim Loads Form */}
         <PlaceTruckForm region="England" />
-
-        {/* Gradient Grid / Visual Feature Section */}
         <GradientGrid />
       </main>
     </>

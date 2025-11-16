@@ -7,31 +7,31 @@ import Content from "./hero/Content";
 import GradientGrid from "./hero/GradientGrid";
 
 export const metadata = {
-  title:
-    "Return Loads & Reloads Scotland | Available Loads Near Me – Get Your Loads Now",
+  title: "Return Loads Scotland",
   description:
-    "Grab return loads, reloads, and part/full loads across Scotland instantly. Available near you from Glasgow, Edinburgh, Aberdeen, Inverness, and beyond. Keep your trucks full and reduce empty miles today.",
+    "Secure return loads, reloads, and available backloads across Scotland. Covering Glasgow, Edinburgh, Aberdeen, Inverness, Dundee, and all major Scottish routes. Reduce empty miles and keep your fleet earning.",
   keywords: [
     "return loads Scotland",
     "reloads Scotland",
+    "Scotland return loads",
+    "backloads Scotland",
     "available loads Scotland",
     "return loads near me",
     "reloads near me",
     "available loads near me",
-    "get loads now Scotland",
-    "recurring loads Scotland",
-    "full load transport Scotland",
-    "part load transport Scotland",
-    "UK backloads",
-    "HGV haulage Scotland",
-    "tautliner loads Scotland",
-    "flatbed loads Scotland",
-    "curtainsider loads Scotland",
+    "haulage Scotland",
+    "HGV loads Scotland",
+    "Scotland logistics",
+    "Scotland transport jobs",
+    "full loads Scotland",
+    "part loads Scotland",
+    "Logic Freight",
+    "return loads UK",
   ],
   openGraph: {
-    title: "Return Loads & Reloads Scotland | Get Your Loads Now",
+    title: "Return Loads Scotland",
     description:
-      "Claim return loads, reloads, and available loads near you. Keep your trucks full and move freight across Scotland efficiently. Don’t miss out on high-demand loads today.",
+      "Get instant access to return loads, reloads, and available backloads across Scotland. Keep your trucks full from Glasgow, Edinburgh, Aberdeen, and beyond.",
     url: "https://www.returnloadsuk.co.uk/return-loads-scotland",
     siteName: "Return Loads UK",
     images: [
@@ -39,7 +39,7 @@ export const metadata = {
         url: "/assets/truck_bg.webp",
         width: 1200,
         height: 630,
-        alt: "Return Loads Scotland – Get Your Loads Now",
+        alt: "Return Loads Scotland – Logic Freight",
       },
     ],
     locale: "en_GB",
@@ -47,9 +47,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Return Loads & Reloads Scotland | Get Your Loads Now",
+    title: "Return Loads Scotland",
     description:
-      "Return loads, reloads, and available loads near you in Scotland. Claim them instantly and keep your trucks full.",
+      "Find Scotland return loads, reloads, and available loads near you. Keep your trucks earning on every mile.",
     images: ["/assets/truck_bg.webp"],
   },
 };
@@ -59,8 +59,17 @@ const structuredData = {
   "@type": "Organization",
   name: "Logic Freight",
   url: "https://www.returnloadsuk.co.uk",
+  logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
   email: "traffic@logic-freight.co.uk",
   telephone: "01633 441457",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Customer Support",
+    email: "traffic@logic-freight.co.uk",
+    telephone: "01633 441457",
+    areaServed: "GB",
+    availableLanguage: "en",
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -72,22 +81,59 @@ const structuredData = {
   sameAs: [],
 };
 
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.returnloadsuk.co.uk",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Scotland",
+      item: "https://www.returnloadsuk.co.uk/return-loads-scotland",
+    },
+  ],
+};
+
 export default function Scotland() {
   const scotlandRoutes = [
-    // High-demand Scotland internal routes
-    { title: "Glasgow to Edinburgh", location: "Scotland" },
-    { title: "Aberdeen to Inverness", location: "Scotland" },
-    { title: "Dundee to Stirling", location: "Scotland" },
-    { title: "Perth to Inverness", location: "Scotland" },
-
-    // Scotland to England/Wales
-    { title: "Glasgow to Birmingham", location: "Scotland / England" },
-    { title: "Edinburgh to Manchester", location: "Scotland / England" },
-    { title: "Aberdeen to London", location: "Scotland / England" },
-    { title: "Inverness to Grimsby", location: "Scotland / England" },
-    { title: "Inverness to Penzance", location: "Scotland / England" },
-    { title: "Dundee to Bristol", location: "Scotland / England" },
-    { title: "Fife to Liverpool", location: "Scotland / England" },
+    { title: "Glasgow to Edinburgh – Return Loads", location: "Scotland" },
+    { title: "Aberdeen to Inverness – Reloads", location: "Scotland" },
+    { title: "Dundee to Stirling – Backloads", location: "Scotland" },
+    { title: "Perth to Inverness – Return Loads", location: "Scotland" },
+    {
+      title: "Glasgow to Birmingham – UK Backloads",
+      location: "Scotland / England",
+    },
+    {
+      title: "Edinburgh to Manchester – Return Loads UK",
+      location: "Scotland / England",
+    },
+    {
+      title: "Aberdeen to London – Long-Haul Reloads",
+      location: "Scotland / England",
+    },
+    {
+      title: "Inverness to Grimsby – Available Loads",
+      location: "Scotland / England",
+    },
+    {
+      title: "Inverness to Penzance – Long-Distance Backloads",
+      location: "Scotland / England",
+    },
+    {
+      title: "Dundee to Bristol – Return Loads",
+      location: "Scotland / England",
+    },
+    {
+      title: "Fife to Liverpool – Reload Opportunities",
+      location: "Scotland / England",
+    },
   ];
 
   return (
@@ -112,28 +158,27 @@ export default function Scotland() {
           content={metadata.twitter.description}
         />
         <meta name="twitter:image" content={metadata.twitter.images[0]} />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+        />
       </Head>
 
       <main className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
-        {/* Hero / Content */}
         <Content />
-
-        {/* Coverage Areas */}
         <CoverageAreas
-          title="High-Demand Scotland Haulage"
-          description="Claim available return loads, reloads, and part/full loads across Scotland’s busiest logistics hubs. From Glasgow to Edinburgh, Aberdeen to Inverness, keep your trucks moving and maximise profits."
+          title="Return Loads Scotland – High-Demand Routes"
+          description="Find return loads, reloads, and available part or full loads across Scotland. Covering Glasgow, Edinburgh, Aberdeen, Inverness, Dundee, and surrounding routes to reduce empty running and maximise revenue."
           areas={scotlandRoutes}
           region="Scotland"
         />
-
-        {/* Place Truck / Claim Loads Form */}
         <PlaceTruckForm region="Scotland" />
-
-        {/* Gradient Grid / Visual Feature Section */}
         <GradientGrid />
       </main>
     </>

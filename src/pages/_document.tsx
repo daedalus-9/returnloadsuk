@@ -4,11 +4,8 @@ export default function Document() {
   return (
     <Html lang="en" className="scroll-smooth">
       <Head>
-        {/* Charset & Viewport */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
 
         {/* Google Analytics */}
@@ -27,7 +24,7 @@ export default function Document() {
           }}
         />
 
-        {/* Default Organization Structured Data */}
+        {/* Site-wide Organization Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -36,9 +33,11 @@ export default function Document() {
               "@type": "Organization",
               name: "Return Loads UK",
               url: "https://www.returnloadsuk.co.uk",
+              logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
+              description:
+                "Return Loads UK helps hauliers find verified return loads, backloads, and available haulage work across the UK.",
               telephone: "+44 1633 441457",
               email: "traffic@logic-freight.co.uk",
-              sameAs: [], // add social links if you want later
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",

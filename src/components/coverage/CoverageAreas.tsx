@@ -50,6 +50,7 @@ export const CoverageAreas = ({
             title={area.title}
             location={area.location}
             link={area.link}
+            region={region}
           />
         ))}
       </div>
@@ -61,11 +62,16 @@ const ScheduleItem = ({
   title,
   location,
   link,
+  region,
 }: {
   title: string;
   location: string;
   link?: string;
+  region?: string;
 }) => {
+  // Smart SEO: Only add “Return Loads {Area}” if this is a region-specific page.
+  const seoTitle = region ? `${title} – Return Loads ${location}` : title;
+
   return (
     <motion.div
       initial={{ y: 48, opacity: 0 }}
@@ -74,7 +80,7 @@ const ScheduleItem = ({
       className="flex flex-col gap-6 border-b border-zinc-800 pb-9 sm:flex-row sm:items-center sm:justify-between"
     >
       <div>
-        <p className="text-xl font-medium text-zinc-50">{title}</p>
+        <p className="text-xl font-medium text-zinc-50">{seoTitle}</p>
         <div className="flex items-center gap-1.5 text-sm uppercase text-zinc-500">
           <FiMapPin />
           <p>{location}</p>

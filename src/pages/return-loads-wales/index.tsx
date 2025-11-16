@@ -8,29 +8,32 @@ import Content from "../return-loads-wales/hero/Content";
 import GradientGrid from "../return-loads-wales/hero/GradientGrid";
 
 export const metadata = {
-  title: "Return Loads Wales | Get Your Return Loads Now – Logic Freight",
+  title: "Return Loads Wales",
   description:
-    "Find verified return loads, reloads, and available haulage work across Wales. From Cardiff and Swansea to Wrexham and Bangor, Logic Freight helps hauliers reduce empty miles and earn more.",
+    "Discover verified return loads, reloads, and haulage backloads across Wales. Covering Cardiff, Swansea, Newport, Wrexham, Bangor, and every major Welsh freight corridor. Keep your trucks full and cut empty miles with Logic Freight.",
   keywords: [
     "return loads Wales",
-    "Wales haulage",
-    "Wales subcontractor haulage",
-    "return loads UK",
-    "flatbed haulage Wales",
-    "tautliner haulage Wales",
-    "curtainsider transport Wales",
-    "owner drivers Wales",
-    "haulage jobs Wales",
+    "Wales return loads",
+    "reloads Wales",
     "backloads Wales",
-    "road freight Wales",
-    "general haulage Wales",
-    "freight exchange Wales",
-    "UK haulage network",
+    "available loads Wales",
+    "Wales haulage",
+    "haulage work Wales",
+    "freight loads Wales",
+    "owner drivers Wales",
+    "HGV loads Wales",
+    "flatbed loads Wales",
+    "curtainsider loads Wales",
+    "tautliner loads Wales",
+    "Wales transport jobs",
+    "UK return loads",
+    "Logic Freight",
+    "return loads UK",
   ],
   openGraph: {
-    title: "Return Loads Wales | Logic Freight",
+    title: "Return Loads Wales",
     description:
-      "Access return loads, reloads, and haulage work across Wales. Logic Freight connects hauliers to full and part loads from Cardiff, Swansea, and Wrexham.",
+      "Find return loads, reloads, and haulage work across Wales. Logic Freight connects hauliers with full and part loads from Cardiff, Swansea, Wrexham, and beyond.",
     url: "https://www.returnloadsuk.co.uk/return-loads-wales",
     siteName: "Return Loads UK",
     images: [
@@ -46,9 +49,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Return Loads Wales | Get Your Return Loads Now",
+    title: "Return Loads Wales",
     description:
-      "Verified return loads, reloads, and available haulage across Wales. Reduce empty miles and keep your trucks full with Logic Freight.",
+      "Secure trusted return loads and reloads across Wales. Keep your fleet earning, reduce empty miles, and move freight efficiently.",
     images: ["/assets/truck_bg.webp"],
   },
 };
@@ -58,8 +61,17 @@ const structuredData = {
   "@type": "Organization",
   name: "Logic Freight",
   url: "https://www.returnloadsuk.co.uk",
+  logo: "https://www.returnloadsuk.co.uk/assets/logo.png",
   email: "traffic@logic-freight.co.uk",
   telephone: "01633 441457",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Customer Support",
+    email: "traffic@logic-freight.co.uk",
+    telephone: "01633 441457",
+    availableLanguage: "en",
+    areaServed: "GB",
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -71,19 +83,41 @@ const structuredData = {
   sameAs: [],
 };
 
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.returnloadsuk.co.uk",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Wales",
+      item: "https://www.returnloadsuk.co.uk/return-loads-wales",
+    },
+  ],
+};
+
 export default function Wales() {
   const walesRoutes = [
-    // High-demand Wales internal routes
-    { title: "Cardiff to Swansea", location: "South Wales" },
-    { title: "Wrexham to Cardiff", location: "Wales" },
-    { title: "Swansea to Newport", location: "South Wales" },
-    { title: "Aberystwyth to Bangor", location: "North Wales" },
-    { title: "Wrexham to Swansea", location: "Wales" },
-
-    // Wales to England/Scotland
-    { title: "Cardiff to London", location: "Wales / England" },
-    { title: "Swansea to Birmingham", location: "Wales / England" },
-    { title: "Bangor to Edinburgh", location: "Wales / Scotland" },
+    { title: "Cardiff to Swansea – Return Loads", location: "South Wales" },
+    { title: "Wrexham to Cardiff – Reloads", location: "Wales" },
+    { title: "Swansea to Newport – Backloads", location: "South Wales" },
+    { title: "Aberystwyth to Bangor – Return Loads", location: "North Wales" },
+    { title: "Wrexham to Swansea – Reload Opportunities", location: "Wales" },
+    {
+      title: "Cardiff to London – Return Loads UK",
+      location: "Wales / England",
+    },
+    { title: "Swansea to Birmingham – Reloads", location: "Wales / England" },
+    {
+      title: "Bangor to Edinburgh – UK Backloads",
+      location: "Wales / Scotland",
+    },
   ];
 
   return (
@@ -108,22 +142,26 @@ export default function Wales() {
           content={metadata.twitter.description}
         />
         <meta name="twitter:image" content={metadata.twitter.images[0]} />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
         />
       </Head>
 
       <main className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
         <Content />
-
         <CoverageAreas
-          title="Wales Haulage"
-          description="Logic Freight connects Wales’ busiest logistics hubs - from Cardiff to Wrexham - to key cities across England and Scotland. Our flatbed and curtain-sider fleet ensures full and part loads move efficiently, reducing empty miles and improving turnaround times."
+          title="Return Loads Wales – High-Demand Freight Routes"
+          description="Logic Freight connects Wales’ busiest logistics hubs to key UK destinations. From Cardiff, Swansea, Newport, and Wrexham to England and Scotland, we provide verified return loads, reloads, and part/full loads to keep your trucks earning every mile."
           areas={walesRoutes}
           region="Wales"
         />
-
         <PlaceTruckForm region="Wales" />
         <GradientGrid />
       </main>
