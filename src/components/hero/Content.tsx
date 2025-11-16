@@ -18,32 +18,33 @@ const Content = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.25, ease: "easeInOut" }}
       >
-        <GlowingChip>Reliable Return Loads & Smarter UK Haulage</GlowingChip>
+        <GlowingChip>
+          Return Loads UK • Backloads • Available Loads Near Me
+        </GlowingChip>
       </motion.div>
 
-      {/* Primary H1 with keyword first */}
+      {/* Primary H1 with main keyword first */}
       <motion.h1
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.25, delay: 0.25, ease: "easeInOut" }}
-        className="mb-4 text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl md:text-5xl lg:text-6xl"
+        className="max-w-[38rem] mb-4 text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl md:text-5xl lg:text-6xl"
       >
-        Return Loads Across the UK – Logic Freight Haulage Network
+        Return Loads UK – Find Return Loads Near You Fast
       </motion.h1>
 
-      {/* Supporting paragraph (SEO-rich but natural) */}
+      {/* SEO supporting paragraph */}
       <motion.p
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.25, delay: 0.5, ease: "easeInOut" }}
         className="mb-9 max-w-xl text-base text-zinc-400 sm:text-lg md:text-xl"
       >
-        <strong>Logic Freight</strong> connects shippers and hauliers with
-        verified <strong>UK return loads</strong> and backloads, helping reduce
-        empty miles, cut fuel costs, and maximise efficiency. With a network of
-        over <strong>2,500 trusted drivers and fleet partners</strong> across
-        England, Scotland, and Wales, we keep your freight moving nationwide, on
-        time and on budget.
+        Access verified <strong>return loads UK</strong>,{" "}
+        <strong>return loads near me</strong>, backloads, reloads, and available
+        loads across England, Scotland, and Wales. Reduce empty miles, secure
+        better rates, and keep vehicles moving with reliable nationwide load
+        opportunities.
       </motion.p>
 
       {/* CTA buttons */}
@@ -53,21 +54,19 @@ const Content = () => {
         transition={{ duration: 1.25, delay: 0.75, ease: "easeInOut" }}
         className="flex flex-col items-center gap-4 sm:flex-row"
       >
+        <SplashButton className="gap-2 mx-auto inline-flex  items-center rounded-md bg-emerald-500 px-4 py-2 text-lg   transition hover:bg-emerald-600">
+          <a href="tel:01633441457" className="">
+            📞 Get Loads!
+          </a>
+          <FiArrowRight />
+        </SplashButton>
         <SplashButton
           onClick={() => scrollToForm()}
           className="flex items-center gap-2"
         >
-          Get started
+          Register!
           <FiArrowRight />
         </SplashButton>
-
-        {/* Optional secondary CTA */}
-        {/* <GhostButton
-          onClick={() => router.push("/#why-logic-freight")}
-          className="rounded-md px-4 py-2 text-lg text-zinc-100"
-        >
-          Why Choose Logic Freight
-        </GhostButton> */}
       </motion.div>
     </MaxWidthWrapper>
   );

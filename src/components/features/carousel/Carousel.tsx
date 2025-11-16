@@ -6,12 +6,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { IconType } from "react-icons";
 import {
+  FiBell,
   FiCheckCircle,
   FiClock,
   FiMapPin,
-  FiPhone,
   FiTruck,
-  FiUsers,
 } from "react-icons/fi";
 import useMeasure from "react-use-measure";
 
@@ -81,6 +80,7 @@ const Carousel = () => {
               </button>
             </div>
           </div>
+
           <motion.div
             animate={{ x: offset }}
             transition={{ ease: "easeInOut" }}
@@ -95,7 +95,7 @@ const Carousel = () => {
           </motion.div>
         </div>
       </div>
-            
+
       <CornerBlur />
     </section>
   );
@@ -130,36 +130,36 @@ const features: FeatureType[] = [
   {
     id: 1,
     Icon: FiMapPin,
-    title: "Smart Load Matching",
+    title: "Consistent, Recurring Return Loads",
     description:
-      "Instantly match your freight with the right drivers in your area.",
+      "Keep your vehicles earning with regular UK-wide return load opportunities.",
   },
   {
     id: 2,
     Icon: FiTruck,
-    title: "Reliable Hauliers",
+    title: "Real-Time Availability Matching",
     description:
-      "Work with vetted drivers who know the routes and respect schedules.",
+      "Instantly match vehicles with loads to reduce empty running and fuel waste.",
   },
   {
     id: 3,
-    Icon: FiClock,
-    title: "Real-Time Tracking",
+    Icon: FiBell,
+    title: "Instant Load Alerts",
     description:
-      "Track your deliveries in real time so you always know where your load is.",
+      "Get notified the moment a new return load appears on routes you already run.",
   },
   {
     id: 4,
     Icon: FiCheckCircle,
-    title: "Verified Deliveries",
+    title: "Fair, Reliable Payment Terms",
     description:
-      "Confirm successful delivery with proof-of-service updates from drivers.",
+      "Take on loads with clear, predictable payment terms so your cash flow stays steady.",
   },
   {
     id: 5,
-    Icon: FiUsers,
-    title: "Expert Support",
+    Icon: FiClock,
+    title: "Live Status Updates",
     description:
-      "Our logistics team is ready to help whenever you need assistance.",
-  }
+      "Stay informed with real-time progress updates for every return load.",
+  },
 ];

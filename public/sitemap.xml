@@ -1,46 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
->
-  <!-- Main page -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
   <url>
-    <loc>https://www.logic-freight.co.uk/</loc>
+    <loc>https://www.returnloadsuk.co.uk/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Subcontractors -->
+  <!-- Localized Return Load Pages -->
   <url>
-    <loc>https://www.logic-freight.co.uk/subcontractors</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.returnloadsuk.co.uk/return-loads-england</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.logic-freight.co.uk/subcontractors/join</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.returnloadsuk.co.uk/return-loads-scotland</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.logic-freight.co.uk/subcontractors/england</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.logic-freight.co.uk/subcontractors/scotland</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.logic-freight.co.uk/subcontractors/wales</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.returnloadsuk.co.uk/return-loads-wales</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Legal page -->
+  <!-- Legal Pages -->
   <url>
-    <loc>https://www.logic-freight.co.uk/privacy-policy</loc>
+    <loc>https://www.returnloadsuk.co.uk/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  
+
 </urlset>

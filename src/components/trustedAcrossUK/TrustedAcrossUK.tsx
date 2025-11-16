@@ -16,7 +16,7 @@ export const TrustedAcrossUK = () => {
         viewport={{ once: true }}
         className="mx-auto mb-10 block w-fit bg-gradient-to-br from-zinc-200 to-zinc-400 bg-clip-text text-center text-lg font-medium text-transparent"
       >
-        Trusted for return loads and haulage across the UK
+        Trusted UK partners for return loads and nationwide haulage
       </motion.span>
 
       <div className="relative flex overflow-hidden">
@@ -39,10 +39,10 @@ export const TrustedAcrossUK = () => {
         viewport={{ once: true }}
         className="mx-auto mt-8 max-w-3xl text-center text-base text-zinc-400 md:text-lg"
       >
-        Logic Freight connects customers and subcontractors with{" "}
-        <strong>return loads</strong> throughout England, Scotland, and Wales,
-        reducing empty miles and keeping UK haulage efficient, reliable, and
-        sustainable.
+        Logic Freight supports hauliers and transport partners with{" "}
+        <strong>return loads</strong> across England, Scotland, and Wales. We
+        help reduce empty running, increase utilisation, and keep UK freight
+        moving efficiently for subcontractors and logistics providers alike.
       </motion.p>
     </section>
   );

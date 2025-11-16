@@ -19,7 +19,7 @@ export const CTA = () => {
           transition={{ duration: 1.25, ease: "easeInOut" }}
           className="relative mb-3"
         >
-          <GlowingChip>Get moving with Logic Freight 🚛</GlowingChip>
+          <GlowingChip>Get instant return loads 🚛</GlowingChip>
         </motion.div>
 
         <motion.h1
@@ -28,7 +28,7 @@ export const CTA = () => {
           transition={{ duration: 1.25, delay: 0.25, ease: "easeInOut" }}
           className="mb-9 max-w-xl text-center text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight"
         >
-          Connect with trusted haulage partners instantly
+          Access verified return loads instantly across the UK
         </motion.h1>
 
         <motion.div
@@ -41,7 +41,7 @@ export const CTA = () => {
             onClick={() => scrollToForm()}
             className="flex items-center gap-2"
           >
-            Get started
+            Get Loads Now
             <FiArrowRight />
           </SplashButton>
           <GhostButton

@@ -1,4 +1,6 @@
+import { SplashButton } from "@/components/buttons/SplashButton";
 import { MaxWidthWrapper } from "@/components/utils/MaxWidthWrapper";
+import { scrollToForm } from "@/components/utils/scrollToForm";
 import { SectionHeading } from "@/components/utils/SectionHeading";
 import { SectionHeadingSpacing } from "@/components/utils/SectionHeadingSpacing";
 import { SectionSubheading } from "@/components/utils/SectionSubheading";
@@ -7,8 +9,6 @@ import { FiArrowRight, FiTruck } from "react-icons/fi";
 import { Minigrid } from "../../utils/Minigrid";
 import { CodeCard } from "./CodeCard";
 import { Stepper } from "./Stepper";
-import { SplashButton } from "@/components/buttons/SplashButton";
-import { scrollToForm } from "@/components/utils/scrollToForm";
 
 export const CodeDemo = () => {
   return (
@@ -23,10 +23,12 @@ export const CodeDemo = () => {
 
         <SectionHeadingSpacing>
           <SectionHeading persistCenter>
-            Keep your trucks and loads moving across the UK
+            Keep your trucks moving with verified return loads UK
           </SectionHeading>
           <SectionSubheading persistCenter>
-            Logic Freight connects hauliers and customers seamlessly helping you reduce empty miles, save fuel, and maximise efficiency.
+            Logic Freight connects hauliers with real return loads across the UK
+            helping you reduce empty miles, save fuel, and maximise efficiency
+            on every route.
           </SectionSubheading>
         </SectionHeadingSpacing>
 
@@ -44,4 +46,3 @@ export const CodeDemo = () => {
     </section>
   );
 };
-

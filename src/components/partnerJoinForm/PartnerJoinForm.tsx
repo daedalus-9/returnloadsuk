@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface PartnerJoinFormProps {
   region?: string;
@@ -83,9 +83,11 @@ export function PartnerJoinForm({
       </h2>
 
       <p className="mt-2 text-base text-neutral-600 dark:text-neutral-400">
-        Join Logic Freight’s trusted UK haulage network. Match and get matched with{" "}
-        <strong>return loads</strong> and transport opportunities across
-        England, Scotland, and Wales.
+        Become part of Logic Freight’s nationwide haulage network. We help
+        transport companies secure consistent work and optimise{" "}
+        <strong>return loads</strong> across England, Scotland, and Wales.
+        Increase utilisation, reduce dead mileage, and connect with partners
+        looking for reliable UK freight solutions.
       </p>
 
       <form className="my-10 space-y-6" onSubmit={handleSubmit}>
@@ -134,7 +136,7 @@ export function PartnerJoinForm({
           />
         </div>
 
-        {/* ✅ Opt-out Checkbox */}
+        {/* Opt-out Checkbox */}
         <div className="flex items-start gap-3">
           <Input
             id="optOut"
@@ -148,7 +150,7 @@ export function PartnerJoinForm({
             className="text-sm leading-snug text-neutral-700 dark:text-neutral-300"
           >
             You may receive occasional updates and partner information from
-            Logic Freight. Tick this box if you <strong>do not</strong> wish to
+            Logic Freight. Tick this box if you <strong>do not</strong> want to
             receive these communications.
           </Label>
         </div>
@@ -166,13 +168,13 @@ export function PartnerJoinForm({
 
         {status === "success" && (
           <p className="text-center font-medium text-green-600">
-            ✅ Thank you {submittedName || "for your enquiry"}. We’ll be in
-            touch soon.
+            Thank you {submittedName || "for your enquiry"}. We’ll be in touch
+            soon.
           </p>
         )}
         {status === "error" && (
           <p className="text-center font-medium text-red-600">
-            ❌ Something went wrong. Please try again later.
+            Something went wrong. Please try again later.
           </p>
         )}
       </form>
