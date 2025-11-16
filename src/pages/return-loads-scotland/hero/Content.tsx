@@ -40,7 +40,7 @@ const Content = () => {
           transition={{ duration: 1.25, delay: 0.5, ease: "easeInOut" }}
           className="mb-10 max-w-2xl text-base text-zinc-400 sm:text-lg md:text-xl"
         >
-          Don’t let your trucks run empty — submit your available truck or claim
+          Don’t let your trucks run empty - submit your available truck or claim
           verified return loads, reloads, and available loads across Scotland
           from Glasgow to Edinburgh, Aberdeen to Inverness. Loads are moving
           fast, so get yours now!
