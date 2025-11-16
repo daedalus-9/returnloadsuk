@@ -1,10 +1,10 @@
 import { CoverageAreas } from "@/components/coverage/CoverageAreas";
-import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
 import { Stats } from "@/components/features/stats/Stats";
 import Footer from "@/components/footer/Footer";
+import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
 import React from "react";
-import Content from "../wales/hero/Content";
-import GradientGrid from "../wales/hero/GradientGrid";
+import Content from "../return-loads-wales/hero/Content";
+import GradientGrid from "../return-loads-wales/hero/GradientGrid";
 
 export const metadata = {
   title: "Wales Haulage & Return Loads | Logic Freight Subcontractor Network",
@@ -77,7 +77,6 @@ export default function Wales() {
   return (
     <main className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
       <Content />
-      <Stats />
 
       <CoverageAreas
         title="Wales Haulage"
@@ -88,7 +87,6 @@ export default function Wales() {
 
       <PlaceTruckForm region="Wales" />
       <GradientGrid />
-      <Footer />
     </main>
   );
 }

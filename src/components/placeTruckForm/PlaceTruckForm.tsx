@@ -74,15 +74,15 @@ export function PlaceTruckForm({
       <div className="flex flex-col gap-4 md:flex-row md:gap-6">
         <a
           href="tel:01633441457"
-          className="mt-3 text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 hover:underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
+          className="mt-3 text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
         >
-          01633 441457
+          Call: 01633 441457
         </a>
         <a
           href="mailto:traffic@logic-freight.co.uk"
-          className="mt-3 text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 hover:underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
+          className="mt-3 text-base text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-800 underline sm:text-lg md:text-xl dark:text-neutral-300 dark:hover:text-white"
         >
-          traffic@logic-freight.co.uk
+          Email: traffic@logic-freight.co.uk
         </a>
       </div>
 

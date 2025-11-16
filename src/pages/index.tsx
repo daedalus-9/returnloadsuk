@@ -9,6 +9,7 @@ import { FiftyFiftyCard } from "@/components/fiftyFiftyCard/fiftyFiftyCard";
 import Footer from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
 import { PartnerJoinForm } from "@/components/partnerJoinForm/PartnerJoinForm";
+import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
 import { Pricing } from "@/components/pricing/Pricing";
 import { TrustedAcrossUK } from "@/components/trustedAcrossUK/TrustedAcrossUK";
 import { Barlow } from "next/font/google";
@@ -91,7 +92,7 @@ export default function Home() {
   return (
     <main className={barlowFont.className}>
       <Hero />
-      <PartnerJoinForm />
+      <PlaceTruckForm />
       <TrustedAcrossUK />
       <CountryLinksSection />
       <FeatureGrid />

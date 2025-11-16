@@ -48,16 +48,32 @@ export default function Footer() {
             <li className="text-lg font-semibold uppercase">Navigation</li>
             <li>
               <Link href="/" className="underline hover:text-white">
-                Homepage
+                Return Loads UK
               </Link>
             </li>
 
             <li>
               <Link
-                href="/subcontractors"
+                href="/return-loads-scotland"
                 className="underline hover:text-white"
               >
-                Subcontractors
+                Return Loads Scotland
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/return-loads-england"
+                className="underline hover:text-white"
+              >
+                Return Loads England
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/return-loads-wales"
+                className="underline hover:text-white"
+              >
+                Return Loads Wales
               </Link>
             </li>
             <li>

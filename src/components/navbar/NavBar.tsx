@@ -131,37 +131,37 @@ const SubcontractorsContent = ({
     <div>
       <h3 className="mb-2 font-semibold">Scotland</h3>
       <Link
-        href="/subcontractors/scotland"
+        href="/return-loads-scotland"
         onClick={() => setMenuOpen(false)}
         className="block text-sm hover:underline"
       >
-        Scotland Routes
+        Return Loads Scotland
       </Link>
     </div>
 
     <div>
       <h3 className="mb-2 font-semibold">England</h3>
       <Link
-        href="/subcontractors/england"
+        href="/return-loads-england"
         onClick={() => setMenuOpen(false)}
         className="block text-sm hover:underline"
       >
-        England Routes
+        Return Loads England
       </Link>
     </div>
 
     <div>
       <h3 className="mb-2 font-semibold">Wales</h3>
       <Link
-        href="/subcontractors/wales"
+        href="/return-loads-wales"
         onClick={() => setMenuOpen(false)}
         className="block text-sm hover:underline"
       >
-        Wales Routes
+        Return Loads Wales
       </Link>
     </div>
 
-    <div className="col-span-3 mt-4 text-center">
+    {/* <div className="col-span-3 mt-4 text-center">
       <Link
         href="/subcontractors/join"
         onClick={() => setMenuOpen(false)}
@@ -169,7 +169,7 @@ const SubcontractorsContent = ({
       >
         Join as a Haulier
       </Link>
-    </div>
+    </div> */}
   </div>
 );
 
@@ -288,8 +288,7 @@ const MobileMenu = () => {
 // -------- LINK STRUCTURE --------
 const LINKS = [
   {
-    text: "Subcontractors",
-    href: "/subcontractors",
+    text: "Areas",
     component: SubcontractorsContent,
   },
 ];

@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
   return (
     <main className="bg-zinc-950 py-24 text-zinc-50">
       <MaxWidthWrapper className="max-w-4xl px-6">
-        <h1 className="mb-6 text-4xl font-extrabold text-amber-400">
+        <h1 className="mb-6 text-4xl font-extrabold text-zinc-50">
           Privacy Policy
         </h1>
         <p className="mb-10 text-zinc-400">
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-300">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-50">
             Information We Collect
           </h2>
           <ul className="list-inside list-disc space-y-2 text-zinc-300">
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-300">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-50">
             How We Use Your Information
           </h2>
           <ul className="list-inside list-disc space-y-2 text-zinc-300">
@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-300">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-50">
             Mailing Lists & Marketing
           </h2>
           <p className="leading-relaxed text-zinc-300">
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-300">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-50">
             Data Storage & Protection
           </h2>
           <p className="leading-relaxed text-zinc-300">
@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-300">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-50">
             Your Rights
           </h2>
           <p className="leading-relaxed text-zinc-300">
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
             personal information. To make a request, please contact us at{" "}
             <a
               href="mailto:traffic@logicfreight.co.uk"
-              className="text-amber-400 underline transition hover:text-amber-300"
+              className="text-zinc-50 underline transition hover:text-zinc-400"
             >
               traffic@logicfreight.co.uk
             </a>
@@ -105,7 +105,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-300">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-50">
             Contact Us
           </h2>
           <p className="leading-relaxed text-zinc-300">
@@ -116,7 +116,7 @@ export default function PrivacyPolicy() {
             Email:{" "}
             <a
               href="mailto:traffic@logicfreight.co.uk"
-              className="text-amber-400 underline transition hover:text-amber-300"
+              className="text-zinc-50 underline transition hover:text-zinc-400"
             >
               traffic@logicfreight.co.uk
             </a>
