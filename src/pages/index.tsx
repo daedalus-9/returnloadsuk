@@ -120,7 +120,6 @@ export default function Home() {
       <Stats />
       <FiftyFiftyCard />
       <CTA />
-      <Footer />
     </main>
   );
 }
