@@ -52,7 +52,7 @@ const FlyoutNav = () => {
 const Links = () => (
   <div className="flex items-center gap-6">
     {LINKS.map((l) => (
-      <NavLink key={l.text} href={l.href} FlyoutContent={l.component}>
+      <NavLink key={l.text} FlyoutContent={l.component}>
         {l.text}
       </NavLink>
     ))}
@@ -65,7 +65,7 @@ const NavLink = ({
   FlyoutContent,
 }: {
   children: React.ReactNode;
-  href: string;
+  href?: string;
   FlyoutContent?: React.ElementType;
 }) => {
   const [open, setOpen] = useState(false);
@@ -181,7 +181,7 @@ const MobileMenuLink = ({
   setMenuOpen,
 }: {
   children: React.ReactNode;
-  href: string;
+  href?: string;
   FoldContent?: React.ElementType;
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -266,7 +266,6 @@ const MobileMenu = () => {
               {LINKS.map((l) => (
                 <MobileMenuLink
                   key={l.text}
-                  href={l.href}
                   FoldContent={l.component}
                   setMenuOpen={setOpen}
                 >
