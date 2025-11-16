@@ -118,7 +118,6 @@ export default function Home() {
       <FiftyFiftyCard />
       <CTA />
 
-      <Footer />
     </main>
   );
 }
