@@ -8,11 +8,10 @@ import { Stats } from "@/components/features/stats/Stats";
 import { FiftyFiftyCard } from "@/components/fiftyFiftyCard/fiftyFiftyCard";
 import Footer from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
-import { PartnerJoinForm } from "@/components/partnerJoinForm/PartnerJoinForm";
 import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
-import { Pricing } from "@/components/pricing/Pricing";
 import { TrustedAcrossUK } from "@/components/trustedAcrossUK/TrustedAcrossUK";
 import { Barlow } from "next/font/google";
+import Head from "next/head";
 
 const barlowFont = Barlow({
   subsets: ["latin"],
@@ -21,59 +20,36 @@ const barlowFont = Barlow({
 });
 
 export const metadata = {
-  title: "Return Loads UK | Find Return Loads Near Me",
+  title:
+    "Return Loads UK | Get Your Return Loads Now – Available Loads Near You Instantly",
   description:
-    "Return Loads UK made simple. Find UK return loads, return loads near me, backloads, reloads, and available loads across England, Scotland, and Wales. Connect with trusted hauliers for full loads, part loads, and cost-efficient nationwide transport.",
+    "Find UK return loads, backloads, and available loads near you instantly. Connect with verified loads across England, Scotland, and Wales with Logic Freight.",
   keywords: [
-    // Primary keywords
     "return loads UK",
     "UK return loads",
-    "return loads",
     "return loads near me",
     "available loads near me",
-    "UK backloads",
-    "backloads near me",
-    "reloads near me",
-    "back loads UK",
+    "backloads UK",
+    "reloads UK",
+    "haulage return loads",
+    "HGV return loads",
     "freight loads near me",
-
-    // Regional targeting
     "return loads England",
     "return loads Scotland",
     "return loads Wales",
-    "return loads London",
-    "return loads Midlands",
-    "return loads South West",
-    "return loads Yorkshire",
-    "return loads North West",
-    "return loads name me",
-
-    // Supporting industry terms
-    "haulage return loads",
-    "HGV return loads",
-    "UK freight exchange",
-    "hauliers near me",
-    "empty miles reduction",
-    "full load transport UK",
-    "part load transport UK",
-    "tautliner loads",
-    "flatbed loads",
-    "curtainsider loads",
-    "general haulage UK",
-    "national haulage network",
   ],
   openGraph: {
-    title: "Return Loads UK | Backloads, Reloads & Available Loads Near You",
+    title: "Return Loads UK | Get Your Return Loads Now",
     description:
-      "Find reliable UK return loads, backloads, and available loads near you. Logic Freight connects hauliers across England, Scotland, and Wales with cost-effective nationwide transport solutions.",
+      "Claim verified return loads, backloads, and available loads across England, Scotland, and Wales instantly with Logic Freight.",
     url: "https://www.returnloadsuk.co.uk",
     siteName: "Return Loads UK",
     images: [
       {
-        url: "/assets/images/logo.png",
+        url: "/assets/truck_bg.jpg",
         width: 1200,
         height: 630,
-        alt: "Return Loads UK Haulage Network",
+        alt: "Return Loads UK – Trucks on the Road",
       },
     ],
     locale: "en_GB",
@@ -81,16 +57,55 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Return Loads UK | Backloads & Available Loads Near Me",
+    title: "Return Loads UK | Get Your Return Loads Now",
     description:
-      "Find UK return loads, backloads, and available loads near you. Connect with trusted hauliers for full and part loads nationwide.",
-    images: ["/assets/images/logo.png"],
+      "Claim return loads, backloads, and available loads near you instantly across the UK.",
+    images: ["/assets/truck_bg.jpg"],
   },
 };
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Return Loads UK",
+    url: "https://www.returnloadsuk.co.uk",
+    description:
+      "Return Loads UK lets hauliers find return loads, backloads, and available loads across England, Scotland, and Wales instantly.",
+    email: "traffic@logic-freight.co.uk",
+    telephone: "+44 1633 441457",
+    image: "/assets/truck_bg.jpg",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+    ],
+  };
+
   return (
     <main className={barlowFont.className}>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:type" content={metadata.openGraph.type} />
+        <meta property="og:image" content={metadata.openGraph.images[0].url} />
+        <link rel="canonical" href="https://www.returnloadsuk.co.uk" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </Head>
+
       <Hero />
       <PlaceTruckForm />
       <TrustedAcrossUK />
@@ -102,6 +117,8 @@ export default function Home() {
       <Stats />
       <FiftyFiftyCard />
       <CTA />
+
+      <Footer />
     </main>
   );
 }
