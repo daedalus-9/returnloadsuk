@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { FiArrowRight } from "react-icons/fi";
+import { GhostButton } from "../buttons/GhostButton";
 import { SplashButton } from "../buttons/SplashButton";
 import { GlowingChip } from "../utils/GlowingChip";
 import { MaxWidthWrapper } from "../utils/MaxWidthWrapper";
@@ -53,20 +54,19 @@ const Content = () => {
         transition={{ duration: 1.25, delay: 0.75, ease: "easeInOut" }}
         className="flex flex-col items-center gap-4 sm:flex-row md:space-x-6"
       >
+        {/* Primary CTA: phone link */}
         <SplashButton className="mx-auto inline-flex items-center gap-2 rounded-md bg-emerald-500 px-4 py-2 text-lg transition hover:bg-emerald-600">
-          <a href="tel:01633441457">
-            📞 Get Loads Now!
-          </a>
+          <a href="tel:01633441457">📞 Get Loads Now!</a>
           <FiArrowRight />
         </SplashButton>
 
-        <SplashButton
+        {/* Secondary CTA: scroll to PlaceTruckForm */}
+        <GhostButton
           onClick={() => scrollToForm()}
-          className="mt-6 flex items-center gap-2 md:mt-0"
+          className="rounded-md px-4 py-2 text-lg text-zinc-100"
         >
           🚛 Place Empty Truck
-          <FiArrowRight />
-        </SplashButton>
+        </GhostButton>
       </motion.div>
     </MaxWidthWrapper>
   );

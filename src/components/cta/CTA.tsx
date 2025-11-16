@@ -37,18 +37,18 @@ export const CTA = () => {
           transition={{ duration: 1.25, delay: 0.75, ease: "easeInOut" }}
           className="flex flex-col items-center gap-4 sm:flex-row"
         >
-          <SplashButton
-            onClick={() => scrollToForm()}
-            className="flex items-center gap-2"
-          >
-            Get Loads Now
+          {/* Primary CTA: phone link */}
+          <SplashButton className="mx-auto inline-flex items-center gap-2 rounded-md bg-emerald-500 px-4 py-2 text-lg transition hover:bg-emerald-600">
+            <a href="tel:01633441457">📞 Get Loads Now!</a>
             <FiArrowRight />
           </SplashButton>
+
+          {/* Secondary CTA: scroll to PlaceTruckForm */}
           <GhostButton
-            onClick={() => router.push("/subcontractors")}
+            onClick={() => scrollToForm()}
             className="rounded-md px-4 py-2 text-lg text-zinc-100"
           >
-            Place a Truck
+            🚛 Place Empty Truck
           </GhostButton>
         </motion.div>
       </MaxWidthWrapper>
