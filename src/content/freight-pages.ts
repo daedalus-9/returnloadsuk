@@ -432,10 +432,7 @@ const servicePages: FreightPage[] = [
           "It may need to if disruption or documentation requires a different route, but commercial, customs and delivery implications must be checked and agreed before changing the plan.",
       },
     ],
-    related: [
-      "/resources/reducing-empty-running/",
-      "/",
-    ],
+    related: ["/resources/reducing-empty-running/", "/"],
     journey: "load",
     reviewedOn,
     indexable: true,
@@ -924,9 +921,7 @@ const vehiclePages: FreightPage[] = [
           "The shipping line normally specifies where and when equipment must be returned. That leg affects mileage, scheduling and possible charges, so it belongs in the transport plan.",
       },
     ],
-    related: [
-      "/industries/import-export-road-freight/",
-    ],
+    related: ["/industries/import-export-road-freight/"],
     journey: "load",
     reviewedOn,
     indexable: true,
@@ -1211,14 +1206,16 @@ const industryPages: FreightPage[] = [
     navTitle: "Import and export",
     metaTitle: "Import & Export Road Freight UK | Logic Freight",
     metaDescription:
-      "Coordinate UK import and export road legs with ports, terminals, customs readiness, container or trailer details and inland delivery plans.",
-    eyebrow: "International supply chains",
-    title: "Import and export road freight connected to the border plan",
-    lead: "Logic Freight helps coordinate supported inland and international road movements where shipping, terminal, customs and receiving information is ready to be used.",
+      "UK road freight for import and export movements, including port collections, container haulage, trailer movements and inland delivery planning.",
+    eyebrow: "Import and export movements",
+    title: "Road freight for import and export movements",
+    lead: "Logic Freight provides road transport for import and export movements, connecting ports, terminals and inland delivery points where the required transport and release information is available.",
+
     intro: [
-      "Import and export freight can involve accompanied HGVs, unaccompanied trailers, shipping containers or consolidated cargo. Each creates a different road requirement. The traffic brief should identify the transport unit, border or terminal status, responsible customs parties and the point at which the road carrier takes control.",
-      "A vessel arrival or ferry booking does not by itself mean freight is ready for collection. Releases, declarations, terminal slots and inland delivery bookings must line up. For exports, the receiving window and document cut-offs need equal attention so the vehicle does not arrive before the port or terminal can accept the unit.",
+      "Import and export movements often include a road leg between a port, terminal, depot or warehouse. That leg may involve an accompanied HGV, an unaccompanied trailer, a shipping container or consolidated cargo, with the road requirement depending on the transport unit and the collection or delivery process.",
+      "Logic Freight focuses on the road movement rather than acting as the customs or shipping party. Collection and delivery planning therefore depends on the relevant release information, terminal requirements, bookings and instructions being in place before the vehicle is dispatched.",
     ],
+
     highlights: [
       {
         title: "Mode made clear",
@@ -1667,9 +1664,7 @@ const locationPages: FreightPage[] = [
           "No. Terminal, carrier and government requirements can change. The parties must check current operational instructions for the specific movement before collection.",
       },
     ],
-    related: [
-      "/industries/import-export-road-freight/",
-    ],
+    related: ["/industries/import-export-road-freight/"],
     journey: "truck",
     reviewedOn,
     indexable: true,
