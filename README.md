@@ -1,65 +1,108 @@
-# Hey! Welcome to the template!
+# Return Loads UK
 
-All of Hover's templates are built with React, NextJS and TailwindCSS. If you're already comfortable with NextJS, feel free to dig in and get started. If not, we'll provide some details below to get you up and running.
+Return Loads UK is a lead-generation website operated by Logic Freight Limited. It helps businesses share freight enquiries and lets hauliers or subcontractors register suitable capacity for review.
 
-Demos for all of our templates can be found [here](https://www.hover.dev/templates).
+The site presents Logic Freight truthfully as a freight broker and capacity-matching intermediary. It is not a public live-load board, does not represent an owned fleet, and does not promise that a load, vehicle, rate or booking is available. Suitability, availability, pricing, booking and commercial terms are confirmed case by case.
 
-## Let's get things running
+## Architecture
 
-This template is built on top of [NextJS](https://nextjs.org/), a full stack development framework built on top of React.
+The application uses Next.js 16, React 19, TypeScript, Tailwind CSS and the Pages Router.
 
-We won't take time here going over exactly how NextJS works on a deep level (to be fair, this project doesn't use Next at a deep level), but if you're interested in learning, their docs are [here](https://nextjs.org/docs/getting-started).
+- `src/pages/` contains route entry points and page-level data functions.
+- `src/components/` contains shared layout, content, form, SEO and analytics UI.
+- `src/content/freight-pages.ts` is the typed registry for scalable freight content.
+- `src/lib/content-routing.ts` applies publication checks and builds static paths.
+- `src/lib/site.ts` holds shared site facts and the core route inventory.
+- `src/styles/globals.css` contains global styling and Tailwind layers.
 
-At the root of your project, you'll see a `package.json` file defining our dependencies.
+Because this is a Pages Router project, every supported file placed under `src/pages/` can become a public route. Reusable components belong under `src/components/`, not inside route directories.
 
-Most of this is boilerplate, but I will call out the following dependencies:
+## Major route groups
 
-- `framer-motion` -> A react based animation library used for most animations
-- `tailwindcss` -> All styling uses Tailwind CSS for this project
+- Core: `/`, `/about/`, `/contact/`, `/how-it-works/`, `/find-return-loads/` and `/european-hauliers/`.
+- Conversion: `/submit-a-load/`, `/place-an-available-truck/` and `/haulage-subcontractor-work/`.
+- Regional: England, Scotland, Wales and Northern Ireland return-load planning pages.
+- Curated content: `/industries/`, `/locations/`, `/ports/`, `/resources/`, `/routes/`, `/seasonal-transport/`, `/services/` and `/vehicles/`, each with a gated `[slug]` route.
+- Legal and crawl: `/privacy-policy/`, `/sitemap.xml` and `public/robots.txt`.
 
-Now that that's out of the way, you can get your project running by first installing dependencies.
+## Lead journeys
 
-From your terminal, run:
+The shared `LeadForm` supports three distinct journeys:
 
+| Journey                   | Page                           | API path       |
+| ------------------------- | ------------------------------ | -------------- |
+| Freight enquiry           | `/submit-a-load/`              | `submit-load`  |
+| Available vehicle         | `/place-an-available-truck/`   | `place-truck`  |
+| Subcontractor application | `/haulage-subcontractor-work/` | `partner-join` |
+
+Set the public API base in `.env.local` or in the deployment environment:
+
+```env
+NEXT_PUBLIC_API_URL=https://api.example.com/leads
 ```
+
+The browser sends JSON with `POST` to `${NEXT_PUBLIC_API_URL}/submit-load`, `${NEXT_PUBLIC_API_URL}/place-truck` or `${NEXT_PUBLIC_API_URL}/partner-join`. Payloads contain the form fields plus a `journey`, optional page `context`, and normalised consent confirmations. The service must:
+
+- allow requests from the deployed site origin;
+- validate and safely handle personal data server-side;
+- return a 2xx status only after the enquiry has been durably accepted;
+- return a non-2xx status when acceptance cannot be confirmed; and
+- implement appropriate abuse protection, rate limiting, retention and secure logging.
+
+`NEXT_PUBLIC_*` values are shipped to the browser, so never put secrets in them.
+
+When no lead API is configured, the UI explicitly says that nothing was submitted and offers a prefilled email containing the completed details. The same honest fallback is offered when an API submission fails or times out; the site does not claim a successful submission unless the endpoint returns 2xx.
+
+## Consent-gated analytics
+
+`NEXT_PUBLIC_GTM_ID` optionally selects the Google Tag Manager container for a deployment:
+
+```env
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+```
+
+The analytics container loads only after the visitor explicitly accepts analytics cookies. Essential-only consent does not load it. Keep events to controlled operational values such as journey, page context and result; do not send names, email addresses, phone numbers, free-text form details or other personal data.
+
+## Local development
+
+Install dependencies and start the development server:
+
+```bash
 npm install
-# or
-yarn install
-```
-
-This will take a minute or two, but once that's done, you should be able to run the following command:
-
-```
 npm run dev
-# or
-yarn dev
 ```
 
-This will start your project on `localhost:3000`
+Before shipping a change, run:
 
-## The file structure
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build
+```
 
-Because this is a NextJS project, we follow the standard NextJS pattern for organizing this project. If you're familiar with the latest in Next, you might know about the relatively new `app` directory. This particular project uses the older `pages` directory as it's a bit simpler for beginners and makes it easier for those of you who'd like to migrate these components out of NextJS.
+`npm test` currently runs the content-registry validator. A production build can be served locally with `npm start` after `npm run build`.
 
-If you WOULD like to upgrade to the app directory, you can find docs on that [here](https://nextjs.org/docs/pages/building-your-application/upgrading/app-router-migration), but it shouldn't make any difference for a project like this one.
+## Content registry and publication gate
 
-Inside of the `src/pages/` directly you'll find 3 files:
+Scalable landing pages are authored as unique records in `src/content/freight-pages.ts`; they are not generated by mechanically swapping place names. Each record has a group, slug, metadata, reviewed date, substantial page copy, useful examples, FAQs, related links and sources where claims need support.
 
-- `_app.tsx/jsx` -> A file which wraps around every page in our app. For this project, we've left this empty.
-- `_document.tsx/jsx` -> Essentially the NextJS version of your base "HTML document". Nothing fancy here beyond a couple of tailwind classes.
-- `index.tsx/jsx` -> This represents our home route. You should start digging around from here.
-- `signin.tsx/jsx` -> This represents our authentication route.
+The publication gate in `src/content/freight-pages.ts` checks indexability, slug format, metadata lengths, minimum content depth, FAQs, checklist items, examples and related routes. `src/lib/content-routing.ts` applies that gate to `getStaticPaths`, and dynamic routes use `fallback: false`. The validator also rejects duplicate metadata and broken or non-canonical related links.
 
-Fonts are defined individually in the index and signin routes.
+For a new or revised page:
 
-To add MORE routes to your project, see [this doc](https://nextjs.org/docs/basic-features/pages).
+1. Research the topic and write genuinely useful, page-specific British-English copy.
+2. Cite authoritative sources for material claims and set an accurate `reviewedOn` date.
+3. Keep `indexable` false until editorial, factual, legal and conversion review is complete.
+4. Run `npm test`, the type checker, lint and a production build.
+5. Publish only when the page satisfies the quality gate and serves a distinct search intent.
 
-Inside of the `/src/components/` directory you'll find all of the components being rendered in our routes.
+Do not publish thin location permutations, fabricated loads, invented availability, unsupported prices or claims of guaranteed work.
 
-## Styling
+## SEO and crawl controls
 
-As noted, styling is done using [Tailwind CSS](https://tailwindcss.com/).
+Shared `Seo` components provide titles, descriptions, canonicals, robots directives and appropriate structured data. The dynamic `/sitemap.xml` combines approved core routes with registry pages that pass the publication gate and uses their review dates as `lastmod` values.
 
-Open up the `tailwind.config.js/ts` file to add to your configuration. For this project, we've left this as an empty template.
+`public/robots.txt` allows public crawling, disallows `/api/` and advertises the canonical sitemap URL. Keep robots rules, canonical URLs and the sitemap aligned whenever routing changes.
 
-The color palette for this project is made up of the tailwind `blue` palette for primary colors, the `zinc` palette for neutral colors, and a few blacks/whites/other utility colors here and there. If you'd like to update these palettes, you could do a find and replace throughout the repository, for instance changing all instances of `blue` to `red`.
+The complete baseline audit, information architecture, publication criteria, measurement plan and prioritised roadmap live in [docs/SEO-AND-CRO-STRATEGY.md](docs/SEO-AND-CRO-STRATEGY.md).

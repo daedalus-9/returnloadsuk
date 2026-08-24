@@ -3,45 +3,50 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   compress: true,
-
-  images: {
-    domains: ["www.returnloadsuk.co.uk"],
+  turbopack: {
+    root: process.cwd(),
   },
 
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/become-a-partner",
-  //       destination: "/",
-  //       permanent: true,
-  //     },
-  //     {
-  //       source: "/contact",
-  //       destination: "/",
-  //       permanent: true,
-  //     },
-  //     {
-  //       source: "/rate-review-job",
-  //       destination: "/",
-  //       permanent: true,
-  //     },
-  //     {
-  //       source: "/about-us/",
-  //       destination: "/",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "returnloadsuk.co.uk" }],
+        destination: "https://www.returnloadsuk.co.uk/:path*",
+        permanent: true,
+      },
+      {
+        source: "/about-us/",
+        destination: "/about/",
+        permanent: true,
+      },
+      {
+        source: "/signin/",
+        destination: "/haulage-subcontractor-work/",
+        permanent: false,
+      },
+    ];
+  },
 
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/assets/:path*",
         headers: [
-          { key: "X-Robots-Tag", value: "index, follow" },
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
           },
         ],
       },

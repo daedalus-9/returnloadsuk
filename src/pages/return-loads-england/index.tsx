@@ -1,181 +1,97 @@
-import { CoverageAreas } from "@/components/coverage/CoverageAreas";
-import { Stats } from "@/components/features/stats/Stats";
-import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
-import Head from "next/head";
-import React from "react";
-import Content from "../return-loads-england/hero/Content";
-import GradientGrid from "../return-loads-england/hero/GradientGrid";
+import {
+  RegionPage,
+  type RegionPageData,
+} from "@/components/content/RegionPage";
 
-export const metadata = {
-  title: "Return Loads England | Reloads & Backloads Near Me – Logic Freight",
-  description:
-    "Secure England return loads, reloads, and available backloads fast. Covering London, Manchester, Birmingham, Leeds, Liverpool, Bristol, and all major English routes. Maximise truck earnings and cut empty running.",
-  keywords: [
-    "return loads England",
-    "England return loads",
-    "reloads England",
-    "backloads England",
-    "available loads England",
-    "England loads near me",
-    "return loads near me",
-    "HGV loads England",
-    "UK backloads",
-    "haulage England",
-    "English transport jobs",
-    "full loads England",
-    "part loads England",
-    "curtainsider loads England",
-    "flatbed loads England",
-    "tautliner loads England",
-    "Logic Freight",
-    "return loads UK",
+const englandPage = {
+  regionName: "England",
+  path: "/return-loads-england/",
+  metaTitle: "Return Loads England | Freight Capacity Enquiries",
+  metaDescription:
+    "Plan return-load and road-freight enquiries across England with practical corridor, timing and vehicle guidance. Availability is confirmed case by case.",
+  eyebrow: "England freight planning",
+  title: "Return-load enquiries across England",
+  lead: "Place a genuinely available truck or submit freight to move across England. Logic Freight reviews the route, timing, vehicle and site detail before discussing a possible match; this page does not advertise live loads.",
+  introHeading: "England is a network of distinct freight markets",
+  intro: [
+    "Freight geography in England changes markedly between the South East, the Midlands, the North and the South West. A vehicle near the M25 may face urban delivery controls and congestion, while a truck finishing in the Midlands can have several competing motorway directions. A useful enquiry therefore starts with the exact postcode and ready time, not the country name alone.",
+    "The M1, M6, M62, M4, M5 and A1(M) connect major manufacturing, distribution and port areas, but a return movement is worthwhile only when collection access, delivery timing, payload, body type and onward direction fit the existing vehicle plan. Logic Freight checks those factors against genuine enquiries and confirms each opportunity individually.",
   ],
-  openGraph: {
-    title: "Return Loads England | Reloads & Backloads Near You",
-    description:
-      "Find and secure return loads, reloads, and available backloads across England. Keep your fleet earning with loads from London, Manchester, Birmingham, Leeds, Liverpool, and more.",
-    url: "https://www.returnloadsuk.co.uk/return-loads-england",
-    siteName: "Return Loads UK",
-    images: [
-      {
-        url: "/assets/truck_bg.webp",
-        width: 1200,
-        height: 630,
-        alt: "Return Loads England – Logic Freight",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Return Loads England | Reloads & Backloads",
-    description:
-      "Find England return loads, reloads, and available loads near you. Keep your trucks earning every mile.",
-    images: ["/assets/truck_bg.webp"],
-  },
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Logic Freight",
-  url: "https://www.returnloadsuk.co.uk",
-  logo: "https://www.returnloadsuk.co.uk/public/assets/images/logo.png",
-  email: "traffic@logic-freight.co.uk",
-  telephone: "01633 441457",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "Customer Support",
-    email: "traffic@logic-freight.co.uk",
-    telephone: "01633 441457",
-    areaServed: "GB",
-    availableLanguage: "en",
-  },
-  openingHoursSpecification: [
+  considerations: [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "17:00",
+      title: "Urban timing and access",
+      text: "London and other large urban areas can involve booked delivery slots, congestion, local vehicle restrictions and slower final approaches. Include site hours and access instructions before a collection is proposed.",
+    },
+    {
+      title: "Direction and detour",
+      text: "A load that is broadly northbound or southbound may still create an unsuitable cross-country detour. State the driver's next commitment and preferred corridor as well as the final destination.",
+    },
+    {
+      title: "Body and loading method",
+      text: "Curtain-side, rear-door, crane, tail-lift and open-trailer work are not interchangeable. Dimensions, gross weight, loading method and site conditions determine which capacity is relevant.",
     },
   ],
-  sameAs: [],
-};
-
-const breadcrumbData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  corridors: [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.returnloadsuk.co.uk",
+      title: "London and the South East",
+      text: "The M25 connects Thames-side, South East and radial motorway movements, but collection position and time of day can materially change the practical route. Port-related work also needs terminal, reference and check-in detail.",
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "England",
-      item: "https://www.returnloadsuk.co.uk/return-loads-england",
+      title: "Midlands motorway network",
+      text: "The M1, M5, M6 and M42 place Birmingham, Coventry, Leicester, Nottingham and surrounding industrial areas at the meeting point of several directions. The correct onward lane must be stated rather than assumed.",
+    },
+    {
+      title: "North West, Yorkshire and the North East",
+      text: "The M6, M62 and A1(M) connect Liverpool, Manchester, Leeds, Sheffield and the North East. Pennine crossings, delivery windows and the vehicle's eventual north–south direction all affect a sensible match.",
+    },
+    {
+      title: "South, South West and cross-border links",
+      text: "M3, M4 and M5 movements can connect Southampton, Bristol, the Thames Valley, South Wales and the Midlands. A regional label is not enough where coastal, rural or cross-border mileage changes the plan.",
     },
   ],
-};
-
-export default function England() {
-  const englandRoutes = [
-    { title: "London to Birmingham – Return Loads", location: "England" },
-    { title: "Manchester to Leeds – Reloads", location: "England" },
-    { title: "Liverpool to Nottingham – Backloads", location: "England" },
-    { title: "Bristol to Sheffield – Return Loads", location: "England" },
+  checklist: [
+    "Give the exact empty postcode and ready time for an available truck.",
+    "State the body type, usable payload, deck dimensions and loading equipment.",
+    "For a load, provide collection and delivery postcodes, opening hours and booking references.",
+    "Describe the goods, packaging, dimensions, weight and any handling or restraint requirement.",
+    "Explain the preferred onward direction and the vehicle's next fixed commitment.",
+  ],
+  faqs: [
     {
-      title: "Southampton to Leicester – Available Loads",
-      location: "England",
-    },
-    { title: "Newcastle to Nottingham – Return Loads", location: "England" },
-    {
-      title: "Derby to Manchester – Reload Opportunities",
-      location: "England",
+      question: "Does this page show live return loads in England?",
+      answer:
+        "No. It explains how to prepare an England freight or truck-placement enquiry. Current freight and vehicle availability changes and is checked privately by the Logic Freight traffic team.",
     },
     {
-      title: "London to Edinburgh – UK Backloads",
-      location: "England / Scotland",
+      question: "Does placing an available truck guarantee a match?",
+      answer:
+        "No. A match depends on genuine demand, route, dates, vehicle suitability, commercial terms and the operator's remaining plan. Logic Freight confirms those points case by case.",
     },
     {
-      title: "Birmingham to Glasgow – Return Loads UK",
-      location: "England / Scotland",
+      question: "Can a shipper use this service for an England movement?",
+      answer:
+        "Yes. Submit the real collection, delivery, timing and freight detail. The team can then assess suitable capacity; submitting an enquiry is not a booking or a guarantee of vehicle availability.",
     },
-    { title: "Leeds to Cardiff – Reloads", location: "England / Wales" },
-    { title: "Liverpool to Swansea – Backloads", location: "England / Wales" },
-  ];
+  ],
+  relatedLinks: [
+    {
+      title: "North West freight planning",
+      text: "Prepare placements around Manchester, Liverpool, the M6 and M62.",
+      href: "/locations/north-west-freight-planning/",
+    },
+    {
+      title: "West Midlands freight planning",
+      text: "Understand the motorway choices around the central Midlands network.",
+      href: "/locations/west-midlands-freight-planning/",
+    },
+    {
+      title: "Return-load matching",
+      text: "See what makes a real load and an available vehicle operationally compatible.",
+      href: "/find-return-loads/",
+    },
+  ],
+} as const satisfies RegionPageData;
 
-  return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta
-          name="twitter:description"
-          content={metadata.twitter.description}
-        />
-        <meta name="twitter:image" content={metadata.twitter.images[0]} />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
-        />
-      </Head>
-
-      <main className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
-        <Content />
-
-        <CoverageAreas
-          title="Return Loads England – High-Demand Routes"
-          description="Find return loads, reloads, and available part or full loads across England. From London to Manchester, Liverpool to Leeds, Bristol to Birmingham, keep your fleet moving and reduce empty miles."
-          areas={englandRoutes}
-          region="England"
-        />
-
-        <PlaceTruckForm region="England" />
-        <GradientGrid />
-      </main>
-    </>
-  );
+export default function ReturnLoadsEnglandPage() {
+  return <RegionPage data={englandPage} />;
 }

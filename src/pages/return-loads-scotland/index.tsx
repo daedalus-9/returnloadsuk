@@ -1,186 +1,98 @@
-import { CoverageAreas } from "@/components/coverage/CoverageAreas";
-import { Stats } from "@/components/features/stats/Stats";
-import { PlaceTruckForm } from "@/components/placeTruckForm/PlaceTruckForm";
-import Head from "next/head";
-import React from "react";
-import Content from "./hero/Content";
-import GradientGrid from "./hero/GradientGrid";
+import {
+  RegionPage,
+  type RegionPageData,
+} from "@/components/content/RegionPage";
 
-export const metadata = {
-  title: "Return Loads Scotland",
-  description:
-    "Secure return loads, reloads, and available backloads across Scotland. Covering Glasgow, Edinburgh, Aberdeen, Inverness, Dundee, and all major Scottish routes. Reduce empty miles and keep your fleet earning.",
-  keywords: [
-    "return loads Scotland",
-    "reloads Scotland",
-    "Scotland return loads",
-    "backloads Scotland",
-    "available loads Scotland",
-    "return loads near me",
-    "reloads near me",
-    "available loads near me",
-    "haulage Scotland",
-    "HGV loads Scotland",
-    "Scotland logistics",
-    "Scotland transport jobs",
-    "full loads Scotland",
-    "part loads Scotland",
-    "Logic Freight",
-    "return loads UK",
+const scotlandPage = {
+  regionName: "Scotland",
+  path: "/return-loads-scotland/",
+  metaTitle: "Return Loads Scotland | Freight Capacity Enquiries",
+  metaDescription:
+    "Plan Scottish return-load and road-freight enquiries with practical guidance on distance, timing, corridors and vehicle detail. Checked case by case.",
+  eyebrow: "Scotland freight planning",
+  title: "Return-load enquiries across Scotland",
+  lead: "Share a real Scottish truck placement or freight requirement with Logic Freight. The traffic team checks current demand, capacity, route and timing individually; no southbound load or vehicle is guaranteed.",
+  introHeading: "Distance and direction shape Scottish return movements",
+  intro: [
+    "Scotland's Central Belt, north-east coast, Highlands and Borders create very different operating plans. A vehicle empty near Glasgow can be well placed for the M74, while a truck in Aberdeen, Inverness or a rural postcode may need substantially more time before it reaches the same southbound corridor. The exact location and remaining driving window are essential.",
+    "Long-distance movements also need credible collection and delivery bookings, rest planning and contingency. M8 freight within the Central Belt, M74 and A1 links towards England, and A9 or A90 movements to the north should not be treated as interchangeable. Logic Freight discusses only genuine enquiries and confirms suitability and availability case by case.",
   ],
-  openGraph: {
-    title: "Return Loads Scotland",
-    description:
-      "Get instant access to return loads, reloads, and available backloads across Scotland. Keep your trucks full from Glasgow, Edinburgh, Aberdeen, and beyond.",
-    url: "https://www.returnloadsuk.co.uk/return-loads-scotland",
-    siteName: "Return Loads UK",
-    images: [
-      {
-        url: "/assets/truck_bg.webp",
-        width: 1200,
-        height: 630,
-        alt: "Return Loads Scotland",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Return Loads Scotland",
-    description:
-      "Find Scotland return loads, reloads, and available loads near you. Keep your trucks earning on every mile.",
-    images: ["/assets/truck_bg.webp"],
-  },
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Logic Freight",
-  url: "https://www.returnloadsuk.co.uk",
-  logo: "https://www.returnloadsuk.co.uk/public/assets/images/logo.png",
-  email: "traffic@logic-freight.co.uk",
-  telephone: "01633 441457",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "Customer Support",
-    email: "traffic@logic-freight.co.uk",
-    telephone: "01633 441457",
-    areaServed: "GB",
-    availableLanguage: "en",
-  },
-  openingHoursSpecification: [
+  considerations: [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "17:00",
+      title: "Driving time and next commitment",
+      text: "A long return leg must fit the driver's available hours, rest plan and next fixed booking. Supply those constraints before a collection window is discussed.",
+    },
+    {
+      title: "Weather and resilience",
+      text: "Season, exposed sections and changing conditions can affect credible schedules, especially on longer northern routes. Build sensible contingency into time-critical movements.",
+    },
+    {
+      title: "Exact empty position",
+      text: "Central Belt, Borders, north-east and Highland placements have different access to trunk roads. A town, depot postcode and realistic ready time are more useful than 'Scotland' alone.",
     },
   ],
-  sameAs: [],
-};
-
-const breadcrumbData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  corridors: [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.returnloadsuk.co.uk",
+      title: "Central Belt and the M8",
+      text: "Glasgow, Edinburgh, Grangemouth and surrounding industrial areas are linked by the M8 and feeder routes. Urban position, site booking and whether the truck needs east, west, north or south determine the useful next move.",
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "Scotland",
-      item: "https://www.returnloadsuk.co.uk/return-loads-scotland",
+      title: "M74 and cross-border movements",
+      text: "The M74 is a principal connection from central Scotland towards North West England and the wider motorway network. A proposed return still needs to fit payload, collection time, delivery window and remaining hours.",
+    },
+    {
+      title: "A1 and east-coast links",
+      text: "Edinburgh and the Borders can connect towards North East England via the A1. Start and finish points matter because a cross-country reposition to another corridor may remove the value of a return movement.",
+    },
+    {
+      title: "A9, A90 and northern Scotland",
+      text: "Perth, Dundee, Aberdeen and Inverness involve longer north–south distances and varied site access. Provide enough notice for equipment, schedule and onward-direction checks rather than assuming regular availability.",
     },
   ],
-};
+  checklist: [
+    "Give the vehicle's exact Scottish empty postcode, date and ready time.",
+    "State remaining driving availability, planned rest and the next fixed booking.",
+    "Describe body type, payload, dimensions, loading access and any specialist equipment.",
+    "For freight, provide complete collection and delivery booking requirements.",
+    "Flag rural access, seasonal timing, ferry dependency or other schedule constraints early.",
+  ],
+  faqs: [
+    {
+      question: "Are southbound return loads from Scotland always available?",
+      answer:
+        "No. Demand varies by date, location, direction, vehicle and commercial fit. Logic Freight checks a genuine placement against current enquiries without promising a match.",
+    },
+    {
+      question:
+        "How much location detail should a Scottish truck placement include?",
+      answer:
+        "Provide the expected empty postcode, ready time and preferred direction. A broad label such as Central Scotland or the Highlands is not precise enough to judge repositioning mileage and timing.",
+    },
+    {
+      question: "Can shippers submit freight between Scotland and England?",
+      answer:
+        "Yes, as an enquiry. Include both postcodes, loading detail and time windows so the traffic team can assess suitable capacity. Nothing is booked until scope, availability, price and terms are agreed.",
+    },
+  ],
+  relatedLinks: [
+    {
+      title: "Central Scotland freight planning",
+      text: "Plan genuine placements around Glasgow, Edinburgh, the M8 and M74.",
+      href: "/locations/central-scotland-freight-planning/",
+    },
+    {
+      title: "Full-load haulage",
+      text: "Prepare vehicle, payload, loading and timing detail for a dedicated movement.",
+      href: "/services/full-load-haulage/",
+    },
+    {
+      title: "Articulated lorry loads",
+      text: "Understand the details needed before an articulated vehicle can be matched.",
+      href: "/vehicles/articulated-lorry-loads/",
+    },
+  ],
+} as const satisfies RegionPageData;
 
-export default function Scotland() {
-  const scotlandRoutes = [
-    { title: "Glasgow to Edinburgh – Return Loads", location: "Scotland" },
-    { title: "Aberdeen to Inverness – Reloads", location: "Scotland" },
-    { title: "Dundee to Stirling – Backloads", location: "Scotland" },
-    { title: "Perth to Inverness – Return Loads", location: "Scotland" },
-    {
-      title: "Glasgow to Birmingham – UK Backloads",
-      location: "Scotland / England",
-    },
-    {
-      title: "Edinburgh to Manchester – Return Loads UK",
-      location: "Scotland / England",
-    },
-    {
-      title: "Aberdeen to London – Long-Haul Reloads",
-      location: "Scotland / England",
-    },
-    {
-      title: "Inverness to Grimsby – Available Loads",
-      location: "Scotland / England",
-    },
-    {
-      title: "Inverness to Penzance – Long-Distance Backloads",
-      location: "Scotland / England",
-    },
-    {
-      title: "Dundee to Bristol – Return Loads",
-      location: "Scotland / England",
-    },
-    {
-      title: "Fife to Liverpool – Reload Opportunities",
-      location: "Scotland / England",
-    },
-  ];
-
-  return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta
-          name="twitter:description"
-          content={metadata.twitter.description}
-        />
-        <meta name="twitter:image" content={metadata.twitter.images[0]} />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
-        />
-      </Head>
-
-      <main className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-50">
-        <Content />
-        <CoverageAreas
-          title="Return Loads Scotland – High-Demand Routes"
-          description="Find return loads, reloads, and available part or full loads across Scotland. Covering Glasgow, Edinburgh, Aberdeen, Inverness, Dundee, and surrounding routes to reduce empty running and maximise revenue."
-          areas={scotlandRoutes}
-          region="Scotland"
-        />
-        <PlaceTruckForm region="Scotland" />
-        <GradientGrid />
-      </main>
-    </>
-  );
+export default function ReturnLoadsScotlandPage() {
+  return <RegionPage data={scotlandPage} />;
 }
