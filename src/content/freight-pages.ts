@@ -380,59 +380,65 @@ const servicePages: FreightPage[] = [
     group: "services",
     slug: "uk-europe-road-freight",
     navTitle: "UK–Europe road freight",
-    metaTitle: "UK–Europe Road Freight & Return Loads | Logic Freight",
+    metaTitle: "UK–Europe Return Loads & Backloads | Logic Freight",
     metaDescription:
-      "Plan supported UK–Europe road freight with route, equipment, border responsibilities and realistic return-capacity options checked.",
+      "UK return loads and backloads for European hauliers already operating in Britain, subject to route, equipment, timing and lawful operating requirements.",
     eyebrow: "International road freight",
-    title: "UK–Europe road freight planned beyond the ferry crossing",
-    lead: "Logic Freight connects supported international freight requirements with suitable haulage capacity while making route, equipment, customs responsibility and delivery expectations clear.",
+    title: "UK return loads for European hauliers",
+    lead: "Logic Freight helps identify suitable UK freight opportunities for European hauliers already bringing vehicles into Britain, where the load, equipment, timing and operating permissions align.",
     intro: [
-      "An international road movement includes more than collection and delivery postcodes. The border route, accompanied or unaccompanied operation, customs process, commodity documentation, operating authority and party responsible for each step must be understood before a vehicle is committed.",
-      "European hauliers entering the UK may also seek a lawful return load towards the port or continental Europe. Domestic UK work by a foreign operator is subject to cabotage rules, so we do not present every internal movement as available to every visiting truck. Current eligibility must be checked for the actual operation.",
+      "European hauliers regularly bring vehicles into the UK and may then need a suitable load before returning towards the port or onward European destination. Logic Freight focuses on the UK-side road freight opportunity rather than presenting itself as a general UK–Europe freight service.",
+      "The right return load depends on where the vehicle has unloaded, where it needs to go next, what equipment it carries and whether the proposed domestic movement is permitted under the operator's applicable rules. We therefore match opportunities against the actual vehicle movement rather than treating every visiting European truck as available for UK domestic work.",
     ],
     highlights: [
       {
-        title: "Border-aware briefing",
-        text: "The transport brief identifies the planned crossing and who is responsible for customs references, declarations and documents needed before the vehicle reaches the border.",
+        title: "UK return opportunities",
+        text: "Suitable UK freight can be considered for European vehicles already in Britain and looking for a lawful onward movement towards their next destination.",
       },
       {
-        title: "Directional capacity",
-        text: "A UK-to-Europe return opportunity is considered against the haulier’s next destination, equipment, timing and lawful operating permissions.",
+        title: "Matched to the truck",
+        text: "Collection location, delivery direction, trailer type, loading time and the vehicle's existing journey are considered before a return opportunity is proposed.",
       },
       {
-        title: "Current guidance",
-        text: "International rules can change, so operational pages link to official guidance and carry a review date rather than copying permanent-sounding legal advice.",
+        title: "Operating rules checked",
+        text: "A foreign-registered vehicle cannot simply undertake unrestricted UK domestic work. The proposed movement must be considered against the operator's applicable international and cabotage permissions.",
       },
     ],
     checklist: [
-      "Provide full UK and European collection and delivery addresses.",
-      "State the commodity, customs status and responsible customs parties.",
-      "Confirm preferred crossing only where the route genuinely requires it.",
-      "For visiting trucks, provide registration country and preceding movement details.",
+      "Provide the vehicle's current or expected UK location.",
+      "State the trailer type, available capacity and equipment requirements.",
+      "Provide the preferred return direction, port or next European destination.",
+      "Confirm the preceding international movement and relevant operator details.",
+      "Allow the proposed UK movement to be checked against applicable operating rules.",
     ],
     examples: [
-      "A full trailer from the Midlands to a distribution site in northern France.",
-      "Palletised exports collected in Britain for a supported Benelux delivery lane.",
-      "A European artic unloading in the UK and seeking lawful freight towards Dover.",
+      "A European artic delivers into the Midlands and needs a suitable load towards Dover.",
+      "A continental trailer unloads in Yorkshire and is looking for an appropriate onward movement towards its next European destination.",
+      "A visiting haulier has spare capacity after a UK delivery and wants to identify a suitable UK freight opportunity before leaving Britain.",
     ],
     faqs: [
       {
-        question: "Can every EU haulier carry a domestic UK return load?",
+        question: "Does Logic Freight offer UK loads to European hauliers?",
         answer:
-          "No. Cabotage rights are limited and depend on the preceding laden international movement and timing. The operator must confirm that the proposed job is lawful.",
+          "Where suitable freight is available, Logic Freight can consider UK load opportunities for visiting European hauliers. The vehicle's location, equipment, timing, preceding international movement and lawful operating position all need to be suitable.",
       },
       {
-        question: "Does Logic Freight complete customs declarations?",
+        question: "Can a European haulier take any UK domestic load?",
         answer:
-          "Do not assume so. The responsible customs party and process must be agreed for each movement. Transport should not be dispatched until the required references are ready.",
+          "No. A non-UK operator's ability to carry goods between UK locations is subject to the applicable international transport and cabotage rules. The specific operation must be assessed before the load is accepted.",
       },
       {
-        question: "Can the crossing change after booking?",
+        question: "Does Logic Freight provide UK-to-Europe loads?",
         answer:
-          "It may need to if disruption or documentation requires a different route, but commercial, customs and delivery implications must be checked and agreed before changing the plan.",
+          "This page is focused on UK freight opportunities for European hauliers already operating in Britain. It should not be taken as a general UK-to-Europe forwarding or freight service.",
+      },
+      {
+        question: "What information should a visiting haulier provide?",
+        answer:
+          "The useful starting information is the vehicle's current UK location, trailer type, available capacity, preceding movement, intended return direction and timing. This allows potential opportunities to be assessed against the actual journey.",
       },
     ],
-    related: ["/resources/reducing-empty-running/", "/"],
+    related: ["/resources/reducing-empty-running/", "/vehicles/"],
     journey: "load",
     reviewedOn,
     indexable: true,
