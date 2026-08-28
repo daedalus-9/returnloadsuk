@@ -21,7 +21,7 @@ No page should imply that current loads, prices, partners or vehicle availabilit
 ### Critical
 
 - Six regional hero components are stored below `src/pages` and therefore compile into thin public routes such as `/return-loads-england/hero/Content/`. The current build exposes twelve business-facing routes instead of the six intended routes. Move all non-page components outside `src/pages`, then redirect or return `410` for any leaked URL that has been discovered.
-- The only rendered lead form posts to `NEXT_PUBLIC_API_URL`, but the repository contains no API route or environment configuration. There is no working in-repo submission path, server validation, spam control or confirmed CRM/email delivery.
+- At baseline the rendered lead form posted to `NEXT_PUBLIC_API_URL` without an in-repository route or environment example. As of 28 August 2026, the shared backend defines `/submit-load`, `/place-truck` and `/partner-join`, and the current forms send validated source attribution and idempotency keys. Production credentials, deployed delivery, retention and operational monitoring still require external verification.
 - The homepage displays unsupported statistics, unattributed five-star testimonials, and simulated recent/live load matches. Remove these until the business supplies evidence and permission. Do not substitute invented proof.
 - All routes receive `X-Robots-Tag: index, follow`; `/signin/` and the leaked component routes inherit homepage metadata. The signin experience is a non-functional template and should be removed or `noindex` until real authentication exists.
 
