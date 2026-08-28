@@ -41,7 +41,7 @@ Set the public API base in `.env.local` or in the deployment environment:
 NEXT_PUBLIC_API_URL=https://api.example.com/leads
 ```
 
-The browser sends JSON with `POST` to `${NEXT_PUBLIC_API_URL}/submit-load`, `${NEXT_PUBLIC_API_URL}/place-truck` or `${NEXT_PUBLIC_API_URL}/partner-join`. Payloads contain the form fields plus a `journey`, optional page `context`, and normalised consent confirmations. The service must:
+The browser sends JSON with `POST` to `${NEXT_PUBLIC_API_URL}/submit-load`, `${NEXT_PUBLIC_API_URL}/place-truck` or `${NEXT_PUBLIC_API_URL}/partner-join`. Payloads contain the form fields plus a `journey`, optional page `context`, `sourceSite: "Return Loads UK"`, the complete browser `sourceUrl`, a retry-stable `submissionId`, a honeypot and normalised consent confirmations. The service must:
 
 - allow requests from the deployed site origin;
 - validate and safely handle personal data server-side;
@@ -51,7 +51,7 @@ The browser sends JSON with `POST` to `${NEXT_PUBLIC_API_URL}/submit-load`, `${N
 
 `NEXT_PUBLIC_*` values are shipped to the browser, so never put secrets in them.
 
-When no lead API is configured, the UI explicitly says that nothing was submitted and offers a prefilled email containing the completed details. The same honest fallback is offered when an API submission fails or times out; the site does not claim a successful submission unless the endpoint returns 2xx.
+When the lead API cannot accept the request, the UI says that nothing was confirmed and offers a prefilled email containing the completed details and source page. The same recovery is offered when a request fails or times out; the site does not claim a successful submission unless the endpoint returns 2xx.
 
 ## Consent-gated analytics
 
