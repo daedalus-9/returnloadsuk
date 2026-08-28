@@ -21,7 +21,7 @@ type SubmissionStatus =
   | { kind: "idle"; message: "" }
   | { kind: "submitting"; message: string }
   | { kind: "success"; message: string }
-  | { kind: "error" | "unavailable"; message: string; mailto: string };
+  | { kind: "error"; message: string; mailto: string };
 
 const LOGIC_FREIGHT_EMAIL = "traffic@logic-freight.co.uk";
 const LOGIC_FREIGHT_PHONE_DISPLAY = "01633 441457";
@@ -107,6 +107,8 @@ export function LeadForm({ journey, context }: LeadFormProps) {
   const content = journeyContent[journey];
   const formStarted = useRef(false);
   const statusRef = useRef<HTMLDivElement>(null);
+  const submittingRef = useRef(false);
+  const submissionIdRef = useRef<string | null>(null);
   const [status, setStatus] = useState<SubmissionStatus>({
     kind: "idle",
     message: "",
@@ -117,8 +119,7 @@ export function LeadForm({ journey, context }: LeadFormProps) {
   useEffect(() => {
     if (
       status.kind === "success" ||
-      status.kind === "error" ||
-      status.kind === "unavailable"
+      status.kind === "error"
     ) {
       statusRef.current?.focus();
     }
@@ -133,28 +134,34 @@ export function LeadForm({ journey, context }: LeadFormProps) {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (submittingRef.current) return;
     recordFormStart();
 
     const form = event.currentTarget;
     if (journey === "truck" && !validateTruckDateRange(form, true)) return;
 
     const formData = new FormData(form);
-    const mailto = buildMailto(journey, context, formData);
-    const apiBase = process.env.NEXT_PUBLIC_API_URL?.trim();
+    const sourceUrl = window.location.href;
+    const mailto = buildMailto(journey, context, formData, sourceUrl);
+    const apiBase =
+      process.env.NEXT_PUBLIC_API_URL?.trim() ||
+      (process.env.NODE_ENV === "development" ? "http://localhost:3001" : "");
 
     if (!apiBase) {
       setStatus({
-        kind: "unavailable",
+        kind: "error",
         message:
-          "Online submission is not configured on this site yet. Nothing has been submitted, but you can email the completed details or contact Logic Freight directly.",
+          "We could not send this enquiry online. Nothing has been confirmed, but you can email the completed details or contact Logic Freight directly.",
         mailto,
       });
-      trackEvent("lead_submit_unavailable", analyticsProperties);
+      trackEvent("lead_submit_error", analyticsProperties);
       return;
     }
 
     setStatus({ kind: "submitting", message: "Sending your details…" });
 
+    submittingRef.current = true;
+    submissionIdRef.current ||= window.crypto.randomUUID();
     const controller = new AbortController();
     const timeoutId = window.setTimeout(
       () => controller.abort(),
@@ -169,6 +176,9 @@ export function LeadForm({ journey, context }: LeadFormProps) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             ...formDataToPayload(formData),
+            submissionId: submissionIdRef.current,
+            sourceSite: "Return Loads UK",
+            sourceUrl,
             journey,
             ...(context ? { context } : {}),
             marketingConsent: formData.get("marketingConsent") === "yes",
@@ -188,6 +198,7 @@ export function LeadForm({ journey, context }: LeadFormProps) {
       }
 
       form.reset();
+      submissionIdRef.current = null;
       setStatus({
         kind: "success",
         message:
@@ -208,6 +219,7 @@ export function LeadForm({ journey, context }: LeadFormProps) {
       trackEvent("lead_submit_error", analyticsProperties);
     } finally {
       window.clearTimeout(timeoutId);
+      submittingRef.current = false;
     }
   };
 
@@ -281,6 +293,13 @@ export function LeadForm({ journey, context }: LeadFormProps) {
             </span>
           </label>
         </fieldset>
+
+        <div className="absolute left-[-9999px]" aria-hidden="true">
+          <label>
+            Website
+            <input name="website" tabIndex={-1} autoComplete="off" />
+          </label>
+        </div>
 
         <p className="text-sm leading-6 text-slate-400">
           Logic Freight will use these details to handle your enquiry. Read the{" "}
@@ -847,7 +866,7 @@ function SubmissionMessage({
     return <div className="sr-only" aria-live="polite" />;
   }
 
-  const isFailure = status.kind === "error" || status.kind === "unavailable";
+  const isFailure = status.kind === "error";
 
   return (
     <div
@@ -941,12 +960,15 @@ function formDataToPayload(formData: FormData) {
 function buildMailto(
   journey: LeadJourney,
   context: string | undefined,
-  formData: FormData
+  formData: FormData,
+  sourceUrl: string
 ) {
   const content = journeyContent[journey];
   const lines = [
     `${content.title}`,
     ...(context ? [`Page context: ${context}`] : []),
+    "Source website: Return Loads UK",
+    `Source URL: ${sourceUrl}`,
     "",
   ];
 
@@ -961,7 +983,7 @@ function buildMailto(
 
   lines.push(
     "",
-    "This email was prepared from the Return Loads UK enquiry form because online submission was unavailable or could not be confirmed."
+    "This email was prepared from the Return Loads UK enquiry form because online submission could not be confirmed."
   );
 
   const subject = context
