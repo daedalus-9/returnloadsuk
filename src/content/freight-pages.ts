@@ -171,7 +171,7 @@ const servicePages: FreightPage[] = [
     ],
     journey: "truck",
     reviewedOn,
-    indexable: false,
+    indexable: true,
     sources: [
       {
         label: "DfT domestic road freight statistics, 2025",
@@ -927,7 +927,10 @@ const vehiclePages: FreightPage[] = [
           "The shipping line normally specifies where and when equipment must be returned. That leg affects mileage, scheduling and possible charges, so it belongs in the transport plan.",
       },
     ],
-    related: ["/industries/import-export-road-freight/"],
+    related: [
+      "/industries/import-export-road-freight/",
+      "/vehicles/",
+    ],
     journey: "load",
     reviewedOn,
     indexable: true,
@@ -1670,7 +1673,10 @@ const locationPages: FreightPage[] = [
           "No. Terminal, carrier and government requirements can change. The parties must check current operational instructions for the specific movement before collection.",
       },
     ],
-    related: ["/industries/import-export-road-freight/"],
+    related: [
+      "/industries/import-export-road-freight/",
+      "/locations/",
+    ],
     journey: "truck",
     reviewedOn,
     indexable: true,
