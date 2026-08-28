@@ -34,7 +34,7 @@ const walesPage = {
   corridors: [
     {
       title: "South East Wales and the M4",
-      text: "Newport and Cardiff connect towards Bristol, the South West and the wider English motorway network. Urban timing, Severn crossing direction and the actual M4 or valley position influence the practical return plan.",
+      text: "Newport and Cardiff connect towards Bristol, the South West and the wider English motorway network. Urban timing, Severn crossing direction and the actual M4 or valley position influence the practical return-load plan.",
     },
     {
       title: "Swansea, Port Talbot and the west",
@@ -42,13 +42,14 @@ const walesPage = {
     },
     {
       title: "North Wales and the A55",
-      text: "Deeside, Wrexham, the north coast and Holyhead connect towards Chester, the North West and ferry movements. Ferry-linked work needs sailing, check-in and documentation detail as well as road timings.",
+      text: "Deeside, Wrexham, the north coast and Holyhead connect towards Chester, the North West and ferry-linked freight movements. Where a European vehicle is already in the UK, the exact location and intended onward direction help determine whether a suitable UK load exists.",
     },
     {
       title: "Mid and rural Wales",
       text: "Movements around Aberystwyth, Powys and rural production areas may involve longer approaches and more constrained access. Confirm route suitability and vehicle dimensions before offering a collection time.",
     },
   ],
+
   checklist: [
     "Provide exact postcodes and gate instructions rather than a broad Welsh region.",
     "State whether the preferred direction is M4 east or west, A55, Midlands or local.",
