@@ -25,6 +25,22 @@ const content = loadTypeScriptModule("src/content/freight-pages.ts");
 const site = loadTypeScriptModule("src/lib/site.ts");
 const groups = Object.keys(content.hubConfigs);
 const errors = [];
+const leadFormSource = fs.readFileSync(
+  path.join(process.cwd(), "src/components/forms/LeadForm.tsx"),
+  "utf8"
+);
+for (const requiredContract of [
+  'sourceSite: "Return Loads UK"',
+  "sourceUrl",
+  "submissionId",
+  'endpoint: "submit-load"',
+  'endpoint: "place-truck"',
+  'endpoint: "partner-join"',
+]) {
+  if (!leadFormSource.includes(requiredContract)) {
+    errors.push(`Lead form contract is missing ${requiredContract}.`);
+  }
+}
 
 function duplicates(values) {
   return values.filter((value, index) => values.indexOf(value) !== index);
